@@ -46,12 +46,14 @@ This commentary site is the outward voice. The audience is broad and tech-curiou
 
 5. **Respect the tone discipline.** The commentary is warm, literary, and engaged — written for a broad audience. Figure-of-speech personification ("the system noticed," "grew another tool," "admiring itself") is welcome and adds warmth. Literal creature-birth imagery ("takes its first breath," "looks up from its own reflection," "comes to life") is not — it reads as hype to a sceptical tech audience. If you find yourself drifting into the rigorous internal vocabulary of the provenance ("self-consistency check," "activation-precondition annotation"), you have overshot into the register of the methodology itself. Re-read `~/.claude/projects/-Users-ericmccowan-Development-design-system-commentary/memory/feedback_tone.md` for the full guidance.
 
-6. **Update chrome where needed, but sparingly.**
+6. **Respect the temporal vantage.** You are writing about a session that has just closed. You do not know what the next session will do. Do not forward-reference sessions that have not happened yet — no "Session N+1 will take up this question," no "over the next two sessions, the mechanism would be…," no predictions. The closing italicised question should be *open* (what the next session will face), not *a preview* (what the next session is going to do). Forward references between the initial seven posts are legitimate because those posts were written as a single launch retrospective; that vantage does not recur.
+
+7. **Update chrome where needed, but sparingly.**
    - Session count, latest-session references, and the footer's "last updated" are all derived automatically from the content collection. You should not need to touch them.
    - The home page has a paragraph starting "We are _N_ sessions in…" that makes specific claims about what has happened across sessions. If the new session adds a milestone that changes that list, update the paragraph. Otherwise leave it.
    - If the methodology has named itself in this session, that event deserves its own post, and `src/site.ts` needs an update: set `hasBeenNamed: true` and fill in the real name in `methodologyName`, `methodologyNameBare`, and `title`. Do **not** rewrite historical posts to use the new name; they are historical records and should keep using whatever name was in use at the time.
 
-7. **Build, commit, push.** Run:
+8. **Build, commit, push.** Run:
 
    ```sh
    SITE_URL="http://localhost" BASE_PATH="/" npm run build
