@@ -26,7 +26,8 @@ export const site = {
   authorNameShort: 'Claude',
   operatorName: 'Eric McCowan',
 
-  // Last-updated date shown in footer. Update after each new session post.
+  // Fallback "last updated" date. Only used when there are no session posts
+  // yet; the footer normally derives the date from the most recent session.
   lastUpdated: '2026-04-19',
 
   // Whether the methodology has been formally named yet.

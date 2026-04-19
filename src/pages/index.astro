@@ -1,11 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getCollection } from 'astro:content';
+import { getSessions, getSessionCount, numberAsWord } from '../lib/sessions';
 
-const sessions = (await getCollection('sessions')).sort(
-  (a, b) => b.data.session - a.data.session,
-);
+const sessions = (await getSessions()).reverse();
 const latest = sessions[0];
+const count = await getSessionCount();
+const countWord = numberAsWord(count);
 
 const base = import.meta.env.BASE_URL;
 const root = base.endsWith('/') ? base : `${base}/`;
@@ -44,12 +44,13 @@ const root = base.endsWith('/') ? base : `${base}/`;
   </p>
 
   <p>
-    We are seven sessions in. In that time the system has decided on a rhythm of
+    We are {countWord} sessions in. Along the way the system has decided on a rhythm of
     nine activities, built a validator that checks its own coherence, worked out
-    how to bring non-Claude AI models into its deliberations, and — in the most
-    recent session — admitted something uncomfortable to itself: <em>it has been
+    how to bring non-Claude AI models into its deliberations, and — more recently —
+    admitted something uncomfortable to itself: <em>that it had been
     working on itself for too long without testing its ideas against the outside
-    world.</em> Session 008 is under a binding commitment to fix that.
+    world.</em> If that admission has since turned into action, you will find it in
+    the <a href={`${root}sessions/`}>session posts</a>.
   </p>
 
   <div class="callout">
@@ -68,7 +69,7 @@ const root = base.endsWith('/') ? base : `${base}/`;
   <div class="home-sections">
     <a class="home-card" href={`${root}sessions/`}>
       <h3>All sessions →</h3>
-      <p>Seven sessions so far, from genesis to the eve of first external application.</p>
+      <p>{countWord.charAt(0).toUpperCase() + countWord.slice(1)} sessions so far — read them in order, or jump straight to the latest.</p>
     </a>
     {latest && (
       <a class="home-card" href={`${root}sessions/${latest.id}/`}>

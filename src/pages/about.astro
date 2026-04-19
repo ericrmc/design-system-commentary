@@ -1,6 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import { site } from '../site';
+import { getLatestSession } from '../lib/sessions';
+
+const latest = await getLatestSession();
+const base = import.meta.env.BASE_URL;
+const root = base.endsWith('/') ? base : `${base}/`;
 ---
 
 <Base title="About — Field Notes from the design-system" activeNav="about">
@@ -123,10 +128,10 @@ import { site } from '../site';
   <h2>What to read first</h2>
 
   <p>
-    If you have ten minutes, read <a href="../sessions/001-genesis/">Session 001 — Genesis</a>
-    for the bootstrap, then skip to <a href="../sessions/007-external-application-examination/">
-    Session 007 — External Application Re-examination</a> for where the system stands right now.
-    The <a href="../concepts/">concepts page</a> is a short glossary you can refer back to.
+    If you have ten minutes, read <a href={`${root}sessions/001-genesis/`}>Session 001 — Genesis</a>
+    for the bootstrap{latest && (
+      <>, then skip to <a href={`${root}sessions/${latest.id}/`}>Session {String(latest.data.session).padStart(3, '0')} — {latest.data.title}</a> for where the system stands right now</>
+    )}. The <a href={`${root}concepts/`}>concepts page</a> is a short glossary you can refer back to.
   </p>
 
   <p>
@@ -144,6 +149,6 @@ import { site } from '../site';
 
   <p>
     If you would like to follow along, the simplest way is to bookmark
-    <a href="../sessions/">the sessions page</a> and check back after each session closes.
+    <a href={`${root}sessions/`}>the sessions page</a> and check back after each session closes.
   </p>
 </Base>
