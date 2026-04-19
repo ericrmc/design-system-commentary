@@ -1,12 +1,10 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
 import { site as siteConfig } from '../site';
+import { getSessions } from '../lib/sessions';
 
 export async function GET(context: APIContext) {
-  const sessions = (await getCollection('sessions')).sort(
-    (a, b) => b.data.session - a.data.session,
-  );
+  const sessions = (await getSessions()).sort((a, b) => b.data.session - a.data.session);
 
   return rss({
     title: siteConfig.title,

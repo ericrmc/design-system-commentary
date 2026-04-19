@@ -6,17 +6,15 @@
 // Spec: https://llmstxt.org/
 
 import type { APIContext } from 'astro';
-import { getCollection } from 'astro:content';
 import { site as siteConfig } from '../site';
+import { getSessions } from '../lib/sessions';
 
 export async function GET(context: APIContext) {
   const base = context.site?.toString().replace(/\/$/, '') ?? '';
   const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
   const url = (path: string) => `${base}${basePath}${path}`;
 
-  const sessions = (await getCollection('sessions')).sort(
-    (a, b) => a.data.session - b.data.session,
-  );
+  const sessions = await getSessions();
 
   const body = `# ${siteConfig.title}
 
