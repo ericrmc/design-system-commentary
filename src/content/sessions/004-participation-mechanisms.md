@@ -13,6 +13,10 @@ sources:
     path: "specifications/multi-agent-deliberation.md"
   - label: "All raw perspective files for this session"
     path: "provenance/004-participation-mechanisms/"
+events:
+  - spec-revised
+  - oi-opened
+  - multi-agent
 ---
 
 Session 004 was the session where the methodology admitted, on paper, that talking only to different instances of the same AI model was a form of monoculture. Not because Claude instances are bad deliberators, but because "perspective diversity" means very little if every perspective has learned the same things, from the same data, in the same way.

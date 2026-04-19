@@ -13,6 +13,9 @@ sources:
     path: "provenance/001-genesis/00-survey.md"
   - label: "Methodology kernel — the nine activities specification"
     path: "specifications/methodology-kernel.md"
+events:
+  - spec-created
+  - oi-opened
 ---
 
 The first session had an awkward structural problem: nothing existed yet. The prompt it was executing told it to follow a methodology it was simultaneously supposed to be creating — and to do that without any prior sessions to lean on. Session 001's job was to build enough of that methodology that Session 002 would have something to follow, while improvising its own process from whatever was already plausible.

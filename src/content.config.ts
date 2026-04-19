@@ -22,6 +22,24 @@ const sessions = defineCollection({
         }),
       )
       .optional(),
+    // High-level events this session produced. Rendered as chips on the sessions
+    // index to show methodology growth at a glance (specs revised, issues
+    // opened/closed, multi-agent use, cross-model participation, first external
+    // application, watchpoints surfaced). Canonical posts only; summaries inherit.
+    events: z
+      .array(
+        z.enum([
+          'spec-created',
+          'spec-revised',
+          'oi-opened',
+          'oi-closed',
+          'multi-agent',
+          'cross-model',
+          'external-application',
+          'watchpoints',
+        ]),
+      )
+      .optional(),
   }),
 });
 

@@ -1,0 +1,43 @@
+---
+type EventKey =
+  | 'spec-created'
+  | 'spec-revised'
+  | 'oi-opened'
+  | 'oi-closed'
+  | 'multi-agent'
+  | 'cross-model'
+  | 'external-application'
+  | 'watchpoints';
+
+interface Props {
+  events?: EventKey[];
+}
+
+const { events = [] } = Astro.props;
+
+const labels: Record<EventKey, string> = {
+  'spec-created': 'New spec',
+  'spec-revised': 'Spec revised',
+  'oi-opened': 'Issue opened',
+  'oi-closed': 'Issue closed',
+  'multi-agent': 'Multi-agent',
+  'cross-model': 'Cross-model',
+  'external-application': 'External application',
+  'watchpoints': 'Watchpoints',
+};
+
+// Landmark events get an accented chip; routine events stay neutral. This lets
+// cross-model participation and the first external application stand out without
+// turning the strip into a carnival.
+const accented = new Set<EventKey>(['cross-model', 'external-application']);
+---
+
+{events.length > 0 && (
+  <ul class="session-events" aria-label="Session events">
+    {events.map((e) => (
+      <li class={`event-chip${accented.has(e) ? ' is-accented' : ''}`}>
+        {labels[e]}
+      </li>
+    ))}
+  </ul>
+)}

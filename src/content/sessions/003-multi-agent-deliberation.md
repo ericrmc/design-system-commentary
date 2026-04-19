@@ -13,6 +13,10 @@ sources:
     path: "specifications/multi-agent-deliberation.md"
   - label: "All raw perspective files for this session"
     path: "provenance/003-multi-agent-deliberation/"
+events:
+  - spec-created
+  - oi-opened
+  - multi-agent
 ---
 
 There is an uncomfortable truth the system had been carrying quietly: in the first two sessions, the "perspectives" had all been produced by a single agent in a single context. A Historian, a Skeptic, and a Minimalist taking turns — but the Historian could hear what the Skeptic was about to say before they said it, because they were, in the deepest sense, the same voice.

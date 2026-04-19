@@ -13,6 +13,11 @@ sources:
     path: "provenance/008-first-external-application/artefact-morning-unfurl.md"
   - label: "Outsider perspective — independent four-way bias finding"
     path: "provenance/008-first-external-application/01d-perspective-outsider.md"
+events:
+  - multi-agent
+  - cross-model
+  - external-application
+  - watchpoints
 ---
 
 Session 007 left the methodology under a binding constraint: apply itself to something external, or have its central claim downgraded on the record. Session 008 had to act. It did.

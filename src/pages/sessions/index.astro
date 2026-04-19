@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import SessionEvents from '../../components/SessionEvents.astro';
 import { getSessions } from '../../lib/sessions';
 
 const sessions = await getSessions();
@@ -35,6 +36,7 @@ const formatDate = (d: Date) =>
         <div class="meta">Session {String(s.data.session).padStart(3, '0')} · {formatDate(s.data.date)}</div>
         <h2><a href={`${root}sessions/${s.id}/`}>{s.data.title}</a></h2>
         <p>{s.data.summary}</p>
+        <SessionEvents events={s.data.events} />
       </li>
     ))}
   </ul>

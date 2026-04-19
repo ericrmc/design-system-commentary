@@ -57,6 +57,8 @@ This commentary site is the outward voice. The audience is broad and tech-curiou
 
    `sources` is required in practice (every post ships one). Aim for 3–4 entries, the files a curious reader would want to verify the post against or read further in. Default mix: the close note, the decisions file, plus one or two topical files (a spec the session created or revised, a key perspective file like the Outsider or Skeptic, the external artefact for an external-application session). Trailing-slash paths render as directory links; bare paths render as file links. Repo + branch are configured in `src/site.ts`.
 
+   Also add an `events` array listing which high-level shapes of work happened in the session. Vocabulary is fixed (enforced by `src/content.config.ts`): `spec-created`, `spec-revised`, `oi-opened`, `oi-closed`, `multi-agent`, `cross-model`, `external-application`, `watchpoints`. Rendered as chips on the sessions index to show methodology growth at a glance. Canonical posts only; summaries inherit. Judge from the session-log row and the close note: only mark `spec-revised` for substantive revisions (the OI-002 distinction — minor annotations don't count); only mark `multi-agent` once the mechanism from Session 003 onward is in use (the single-context "perspectives" in Sessions 001–002 don't qualify); `cross-model` means a non-Claude participant was in the deliberation; `external-application` is reserved for sessions that produce a real external artefact; `watchpoints` means the session explicitly surfaced watchpoint findings (W1, W2, …) in its decisions.
+
    Read two or three existing posts (001, 003, 007 are a good sample) before writing, to internalise the tone and shape.
 
 5. **Follow the post's loose shape.**
