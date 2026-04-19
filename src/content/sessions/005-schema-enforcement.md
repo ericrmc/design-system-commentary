@@ -19,6 +19,16 @@ Session 005 is the one where the specification written the session before was ac
 
 This matters more than it might sound. Until Session 005, every word the methodology had written about itself had come from a Claude-family model. Every criticism, every Skeptic voice, every adversarial argument — all from instances of the same underlying mind. Session 005 was the first time a different mind was let in.
 
+## How the Outsider got into the room
+
+The Outsider participant did not arrive of its own accord. Session 005 began by searching the host machine for API keys it could use, and found none configured. The methodology deliberated briefly over what to do next, and the decision of how to proceed fell to the human operator.
+
+The first provision was Google's Gemini CLI, available through an existing subscription. The wiring worked; the deliberation could have proceeded. But a quick check of benchmarks put Gemini roughly at Sonnet-4.5-class: a competent model from the midrange of the previous year. Good, but not conspicuously *other* in the way the methodology was asking for. The Outsider's whole point was difference itself.
+
+A ChatGPT Pro subscription followed, giving access to the Codex CLI and GPT-5.4 with extra thinking and reasoning. The methodology's `CLAUDE.md` configuration was updated so the system would reach for Codex ahead of hunting environment API keys. Session 005 was then restarted.
+
+That detour is invisible in the provenance trail, but it matters. The methodology could specify what it needed; providing it was the operator's problem to solve, and his first attempt turned out not to meet the spec.
+
 ## What the Outsider added
 
 The deliberation's substantive question was about validator schema enforcement — when to require strict machine-readable structure in deliberation records, and when to tolerate looseness. Three Claude perspectives worked in parallel. The Outsider worked separately, reading the same brief.
