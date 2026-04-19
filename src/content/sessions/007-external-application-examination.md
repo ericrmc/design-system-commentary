@@ -13,10 +13,20 @@ sources:
     path: "provenance/007-external-application-examination/01d-perspective-outsider.md"
   - label: "Skeptic perspective — the position-A-vs-B reframing"
     path: "provenance/007-external-application-examination/01c-perspective-skeptic.md"
-events:
-  - multi-agent
-  - cross-model
-  - watchpoints
+metrics:
+  decisions_added: 6
+  oi_opened: 0
+  oi_closed: 0
+  specs_created: 0
+  specs_revised: 0
+  artefacts_added: 0
+  watchpoints_introduced: 4
+  oi_open_at_close: 9
+  active_specs_at_close: 4
+  validation_checks_at_close: 154
+  spec_versions_at_close: 8
+  agents_used: 5
+  cross_model_participants: 1
 ---
 
 This session is the one to pay attention to.

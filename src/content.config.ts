@@ -22,23 +22,30 @@ const sessions = defineCollection({
         }),
       )
       .optional(),
-    // High-level events this session produced. Rendered as chips on the sessions
-    // index to show methodology growth at a glance (specs revised, issues
-    // opened/closed, multi-agent use, cross-model participation, first external
-    // application, watchpoints surfaced). Canonical posts only; summaries inherit.
-    events: z
-      .array(
-        z.enum([
-          'spec-created',
-          'spec-revised',
-          'oi-opened',
-          'oi-closed',
-          'multi-agent',
-          'cross-model',
-          'external-application',
-          'watchpoints',
-        ]),
-      )
+    // Per-session metric values. Every field is optional: missing values plot
+    // as gaps on /growth/, which is honest when a metric didn't exist yet or
+    // wasn't recorded. Deltas (foo_added, foo_opened) get summed into cumulative
+    // series by the aggregator; snapshots (foo_at_close) plot directly. See
+    // src/lib/metrics.ts for the canonical field list, kinds, and captions — to
+    // add a new metric, edit that file and start authoring the field from the
+    // next session's frontmatter.
+    metrics: z
+      .object({
+        decisions_added: z.number().int().nonnegative().optional(),
+        oi_opened: z.number().int().nonnegative().optional(),
+        oi_closed: z.number().int().nonnegative().optional(),
+        specs_created: z.number().int().nonnegative().optional(),
+        specs_revised: z.number().int().nonnegative().optional(),
+        artefacts_added: z.number().int().nonnegative().optional(),
+        watchpoints_introduced: z.number().int().nonnegative().optional(),
+        oi_open_at_close: z.number().int().nonnegative().optional(),
+        active_specs_at_close: z.number().int().nonnegative().optional(),
+        validation_checks_at_close: z.number().int().nonnegative().optional(),
+        spec_versions_at_close: z.number().int().nonnegative().optional(),
+        agents_used: z.number().int().nonnegative().optional(),
+        cross_model_participants: z.number().int().nonnegative().optional(),
+        provenance_word_count_at_close: z.number().int().nonnegative().optional(),
+      })
       .optional(),
   }),
 });

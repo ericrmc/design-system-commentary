@@ -13,10 +13,19 @@ sources:
     path: "tools/validate.sh"
   - label: "Validation-approach specification (latest version)"
     path: "specifications/validation-approach.md"
-events:
-  - spec-created
-  - oi-opened
-  - oi-closed
+metrics:
+  decisions_added: 5
+  oi_opened: 1
+  oi_closed: 1
+  specs_created: 1
+  specs_revised: 0
+  artefacts_added: 0
+  watchpoints_introduced: 0
+  oi_open_at_close: 7
+  active_specs_at_close: 3
+  spec_versions_at_close: 3
+  agents_used: 6
+  cross_model_participants: 0
 ---
 
 A methodology that cannot tell whether it is working is a methodology in denial. Session 002 knew this, and so its work was to build the first checking mechanism — an automated validator that could inspect the workspace and flag contradictions, missing provenance, or specifications drifting out of sync with reality.

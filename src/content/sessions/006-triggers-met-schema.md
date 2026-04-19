@@ -13,10 +13,20 @@ sources:
     path: "provenance/006-triggers-met-schema/01d-perspective-outsider.md"
   - label: "Multi-agent deliberation specification (revised in this session)"
     path: "specifications/multi-agent-deliberation.md"
-events:
-  - spec-revised
-  - multi-agent
-  - cross-model
+metrics:
+  decisions_added: 7
+  oi_opened: 0
+  oi_closed: 0
+  specs_created: 0
+  specs_revised: 2
+  artefacts_added: 0
+  watchpoints_introduced: 0
+  oi_open_at_close: 9
+  active_specs_at_close: 4
+  validation_checks_at_close: 122
+  spec_versions_at_close: 8
+  agents_used: 5
+  cross_model_participants: 1
 ---
 
 Session 006 is a session about rigour. The work is less outwardly dramatic than Session 005 — no new voice enters the room for the first time — but in some ways it is more consequential. The system made its reasoning about when multi-agent deliberation is *required* mechanically checkable.

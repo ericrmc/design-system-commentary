@@ -13,11 +13,20 @@ sources:
     path: "provenance/005-schema-enforcement/01d-perspective-outsider.md"
   - label: "validate.sh — extended with cross-model honesty checks"
     path: "tools/validate.sh"
-events:
-  - spec-revised
-  - oi-closed
-  - multi-agent
-  - cross-model
+metrics:
+  decisions_added: 9
+  oi_opened: 0
+  oi_closed: 1
+  specs_created: 0
+  specs_revised: 1
+  artefacts_added: 0
+  watchpoints_introduced: 0
+  oi_open_at_close: 9
+  active_specs_at_close: 4
+  validation_checks_at_close: 84
+  spec_versions_at_close: 6
+  agents_used: 5
+  cross_model_participants: 1
 ---
 
 Session 005 is the one where the specification written the session before was actually exercised. OpenAI GPT-5, accessed through the Codex CLI, joined three Claude subagents as the fourth voice in a deliberation. The system calls this the *Outsider* perspective. It is not a rhetorical flourish; it is the technical designation for a participant whose training provenance is genuinely different from the others in the room.

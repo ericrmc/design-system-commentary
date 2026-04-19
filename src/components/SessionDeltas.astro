@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getSessionDeltas } from '../lib/session-metrics';
+
+interface Props {
+  entry: CollectionEntry<'sessions'>;
+}
+
+const { entry } = Astro.props;
+const deltas = getSessionDeltas(entry);
+
+function formatDelta(value: number, singular: string, plural: string): string {
+  const noun = value === 1 ? singular : plural;
+  return `+${value} ${noun}`;
+}
+---
+
+{deltas.length > 0 && (
+  <p class="session-deltas" aria-label="This session added">
+    {deltas.map((d, i) => (
+      <>
+        {i > 0 && <span class="session-deltas-sep" aria-hidden="true"> · </span>}
+        <span class="session-delta">{formatDelta(d.value, d.def.nounSingular, d.def.nounPlural)}</span>
+      </>
+    ))}
+  </p>
+)}

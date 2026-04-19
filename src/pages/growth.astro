@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import Sparkline from '../components/Sparkline.astro';
+import { getAllSeries } from '../lib/session-metrics';
+
+const series = await getAllSeries();
+
+function formatNumber(n: number | undefined): string {
+  if (n === undefined) return '—';
+  return n.toLocaleString('en-GB');
+}
+---
+
+<Base title="Growth — Field Notes from the design-system" activeNav="growth">
+  <header class="post-header">
+    <div class="meta">Growth</div>
+    <h1>What has accumulated.</h1>
+    <p class="subtitle">Counts and snapshots across the series. Gaps mean a metric was not yet recorded; zero means it was recorded and no change happened.</p>
+  </header>
+
+  <p>
+    Each sparkline runs from Session 001 to the most recent session. The y-axis
+    starts at zero in every chart. The current value sits beside the label. No
+    client-side JavaScript — these are static SVGs generated at build time from
+    values authored per-session in the post frontmatter.
+  </p>
+
+  <ul class="growth-list">
+    {series.map((s) => (
+      <li class="growth-row">
+        <div class="growth-head">
+          <h2 class="growth-label">{s.def.label}</h2>
+          <div class="growth-latest">
+            <span class="growth-latest-value">{formatNumber(s.latest)}</span>
+            <span class="growth-latest-kind">{s.def.kind === 'delta' ? 'cumulative' : 'at last close'}</span>
+          </div>
+        </div>
+        <Sparkline series={s} />
+        <p class="growth-caption">{s.def.caption}</p>
+      </li>
+    ))}
+  </ul>
+</Base>

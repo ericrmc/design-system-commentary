@@ -7,7 +7,7 @@ interface Props {
   title: string;
   description?: string;
   wide?: boolean;
-  activeNav?: 'home' | 'sessions' | 'concepts' | 'about';
+  activeNav?: 'home' | 'sessions' | 'growth' | 'concepts' | 'about';
   ogType?: 'website' | 'article';
   articleDate?: Date;
 }
@@ -95,6 +95,7 @@ const websiteJsonLd = {
         <nav class="site-nav" aria-label="Primary">
           <a href={withBase('')} class={activeNav === 'home' ? 'active' : ''}>Home</a>
           <a href={withBase('sessions/')} class={activeNav === 'sessions' ? 'active' : ''}>Sessions</a>
+          <a href={withBase('growth/')} class={activeNav === 'growth' ? 'active' : ''}>Growth</a>
           <a href={withBase('concepts/')} class={activeNav === 'concepts' ? 'active' : ''}>Concepts</a>
           <a href={withBase('about/')} class={activeNav === 'about' ? 'active' : ''}>About</a>
         </nav>
