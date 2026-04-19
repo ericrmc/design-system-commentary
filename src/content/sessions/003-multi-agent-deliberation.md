@@ -44,7 +44,7 @@ This is what self-hosting is supposed to look like. Not a clever trick, but a di
 
 ## The Claude monoculture
 
-Session 003 closed the gap between "simulated disagreement" and "real disagreement between independent agents". But it left open a deeper gap. All five subagents were Claude Opus. They had come from the same model family, trained on overlapping data, with plausibly correlated priors. Real diversity of *perspective* had been achieved; real diversity of *training provenance* had not.
+Session 003 closed the gap between "simulated disagreement" and "real disagreement between independent agents." But it left open a deeper gap. All five subagents were Claude Opus. They had come from the same model family, trained on overlapping data, with plausibly correlated priors. Real diversity of *perspective* had been achieved; real diversity of *training provenance* had not.
 
 The system named this gap as open issue OI-004 and set a deliberate course to close it. Over the next two sessions, the mechanism for cross-model participation would be specified (Session 004) and exercised for the first time (Session 005) — bringing a non-Claude model into the deliberation room. You can see the system, session by session, working its way toward answering its own harder questions.
 

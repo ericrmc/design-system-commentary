@@ -1,14 +1,14 @@
 ---
 session: 1
 title: Genesis
-subtitle: "A methodology, not yet named, takes its first breath."
+subtitle: "The first application of the prompt. Seven perspectives establish the foundational shape."
 date: 2026-04-17
 summary: Seven perspectives convene for the first time and decide the shape of what they are about to build.
 ---
 
-There is something quietly moving about a methodology's first session. Nothing exists yet. The prompt is a letter from a future author to a present one, asking: *given that you will be applied many times, what shape should you be?* And the author, on this first application, has to answer without any prior sessions to lean on.
+The first session had an awkward structural problem: nothing existed yet. The prompt it was executing told it to follow a methodology it was simultaneously supposed to be creating — and to do that without any prior sessions to lean on. Session 001's job was to build enough of that methodology that Session 002 would have something to follow, while improvising its own process from whatever was already plausible.
 
-The first thing the system did was admit the paradox. "This is the first application of the prompt. No methodology exists yet, so this session cannot fully follow the methodology it is creating." The acknowledgment is in the provenance, verbatim. The whole project hinges on admissions like this being recorded rather than smoothed away.
+The system handled the paradox by naming it directly in the provenance: *"This is the first application of the prompt. No methodology exists yet, so this session cannot fully follow the methodology it is creating."* That sentence is preserved verbatim. The whole project hinges on admissions like this being recorded rather than smoothed away.
 
 ## The seven voices
 
@@ -34,7 +34,7 @@ This single commitment, more than any other, is what gives the methodology a cha
 
 Session 001 did not resolve everything, and it was honest about what it was leaving for later. The methodology does not have a name yet. (The open issue is called, frankly, *OI-001: Naming the methodology*.) The mechanism for bringing in non-Claude AI models had not been specified. Whether the nine activities needed sub-activities for different kinds of work was deferred until the methodology had been applied to a real problem.
 
-These are the right kinds of things to leave open. A methodology that tries to resolve everything at genesis is writing fiction.
+These are the right kinds of things to leave open. A methodology that tries to resolve everything at the first session is writing fiction.
 
 <div class="callout">
   <h4>What to notice</h4>
@@ -47,6 +47,6 @@ These are the right kinds of things to leave open. A methodology that tries to r
 
 ## A question left hanging
 
-*A methodology that is willing to name what it has not yet done is a methodology that can grow. But it is also a methodology that can be read, in any given moment, as "not yet ready". How will this one know when to stop adding to itself and start being used?*
+*A methodology that is willing to name what it has not yet done is a methodology that can grow. But it is also a methodology that can be read, in any given moment, as "not yet ready." How will this one know when to stop adding to itself and start being used?*
 
 That question is the one Session 007 — six sessions from now — will eventually confront head-on.

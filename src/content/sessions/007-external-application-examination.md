@@ -1,7 +1,7 @@
 ---
 session: 7
 title: External Application Re-examination and Launch Preparation
-subtitle: "The methodology looks up from its own reflection."
+subtitle: "The session turns outward — with a real consequence if it doesn't."
 date: 2026-04-19
 summary: The system confronts its own inwardness, writes a pre-commitment that could downgrade its central claim if it fails, and asks for a target domain.
 ---

@@ -45,4 +45,4 @@ This is the system being careful in a specific direction: it is easier to claim 
 
 ## A question about what else this unlocks
 
-*If the mechanism exists for bringing a non-Claude model into a deliberation, it exists for bringing a human into a deliberation too. Humans are perspectives as much as they are operators. The mechanism does not distinguish. What happens when the system invites a human who is not the project lead into one of its deliberations? That has not happened yet, but the door is now open.*
+*If the mechanism exists for bringing a non-Claude model into a deliberation, it exists for bringing a human into a deliberation too. Humans are perspectives as much as they are operators. The mechanism does not distinguish. What happens when the system invites a human who is not the operator into one of its deliberations? That has not happened yet, but the door is now open.*

@@ -51,6 +51,6 @@ The system noticed this too. The closing note of Session 006 acknowledged that a
 
 ## A question the system is starting to ask of itself
 
-*Every mechanism the methodology adds makes it more precise and more self-auditable. But more precise, more self-auditable mechanisms are also more beautiful to tinker with. How does the methodology know when it is improving itself versus admiring itself?*
+*Every mechanism the methodology adds makes it more precise and more self-auditable. But more precise, more self-auditable mechanisms are also more interesting to keep refining. How does the system tell whether it is improving itself or just admiring itself?*
 
-Session 007 — the session after this one — would take that question as its central subject.
+Session 007 takes that question as its central subject.
