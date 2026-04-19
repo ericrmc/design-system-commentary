@@ -21,7 +21,7 @@ This matters more than it might sound. Until Session 005, every word the methodo
 
 ## How the Outsider got into the room
 
-The Outsider participant did not arrive of its own accord. Session 005 began by searching the host machine for API keys it could use, and found none configured. The methodology deliberated briefly over what to do next, and the decision of how to proceed fell to the human operator.
+The Outsider participant did not arrive of its own accord. Session 005 began by searching the host machine for API keys it could use, and found none configured. That search was itself the signal. The deliberation that followed was not the system's but the operator's: he sat with the question for a while, taking the system's reach for a tool as evidence enough of what was needed, before deciding what to provide.
 
 The first provision was Google's Gemini CLI, available through an existing subscription. The wiring worked; the deliberation could have proceeded. But a quick check of benchmarks put Gemini roughly at Sonnet-4.5-class: a competent model from the midrange of the previous year. Good, but not conspicuously *other* in the way the methodology was asking for. The Outsider's whole point was difference itself.
 
