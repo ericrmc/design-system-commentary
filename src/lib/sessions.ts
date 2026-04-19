@@ -10,9 +10,22 @@ export function numberAsWord(n: number): string {
   return NUMBER_WORDS[n] ?? String(n);
 }
 
+// Canonical sessions only (variant === 'default'). The home page, sessions index,
+// feed, and llms.txt all want this — variants are alternate views of a canonical post.
 export async function getSessions(): Promise<CollectionEntry<'sessions'>[]> {
   const all = await getCollection('sessions');
-  return all.sort((a, b) => a.data.session - b.data.session);
+  return all
+    .filter((e) => e.data.variant === 'default')
+    .sort((a, b) => a.data.session - b.data.session);
+}
+
+// Variants of a canonical session, excluding the default. Used by the route generator
+// and the layout's variant switcher.
+export async function getVariantsForSession(
+  session: number,
+): Promise<CollectionEntry<'sessions'>[]> {
+  const all = await getCollection('sessions');
+  return all.filter((e) => e.data.session === session && e.data.variant !== 'default');
 }
 
 export async function getLatestSession(): Promise<CollectionEntry<'sessions'> | undefined> {

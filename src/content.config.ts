@@ -9,6 +9,7 @@ const sessions = defineCollection({
     subtitle: z.string().optional(),
     date: z.coerce.date(),
     summary: z.string(),
+    variant: z.enum(['default', 'summary']).default('default'),
   }),
 });
 

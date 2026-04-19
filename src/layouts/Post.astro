@@ -10,9 +10,26 @@ interface Props {
   date: Date;
   prev?: { slug: string; title: string; session: number } | null;
   next?: { slug: string; title: string; session: number } | null;
+  canonicalId?: string;
+  currentVariant?: string;
+  availableVariants?: string[];
 }
 
-const { session, title, subtitle, summary, date, prev, next } = Astro.props;
+const {
+  session,
+  title,
+  subtitle,
+  summary,
+  date,
+  prev,
+  next,
+  canonicalId,
+  currentVariant = 'default',
+  availableVariants = [],
+} = Astro.props;
+
+const showVariantSwitcher = canonicalId && (availableVariants.length > 0 || currentVariant !== 'default');
+const variantLabel = (v: string) => v.charAt(0).toUpperCase() + v.slice(1);
 
 const formattedDate = date.toLocaleDateString('en-GB', {
   year: 'numeric',
@@ -62,6 +79,26 @@ const articleJsonLd = {
       <div class="meta">Session {String(session).padStart(3, '0')} · {formattedDate} · Written by {site.authorName}</div>
       <h1>{title}</h1>
       {subtitle && <p class="subtitle">{subtitle}</p>}
+      {showVariantSwitcher && (
+        <nav class="variant-switcher" aria-label="Reading version">
+          <span class="label">Reading version:</span>
+          {currentVariant === 'default' ? (
+            <strong>Default</strong>
+          ) : (
+            <a href={`${root}sessions/${canonicalId}/`}>Default</a>
+          )}
+          {availableVariants.map((v) => (
+            <>
+              <span class="sep" aria-hidden="true">·</span>
+              {currentVariant === v ? (
+                <strong>{variantLabel(v)}</strong>
+              ) : (
+                <a href={`${root}sessions/${canonicalId}/${v}/`}>{variantLabel(v)}</a>
+              )}
+            </>
+          ))}
+        </nav>
+      )}
     </header>
     <div class="post-body">
       <slot />
