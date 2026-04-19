@@ -40,7 +40,7 @@ This commentary site is the outward voice. The audience is broad and tech-curiou
 
 4. **Draft the post.** Create one markdown file at `src/content/sessions/NNN-short-slug.md`. The content collection schema (enforced by `src/content.config.ts`) requires:
 
-   ```
+   ```yaml
    ---
    session: <number>
    title: <string — the session's title, sentence-cased>
@@ -52,19 +52,51 @@ This commentary site is the outward voice. The audience is broad and tech-curiou
        path: "relative/path/in/design-system-repo.md"
      - label: "..."
        path: "..."
+   metrics:
+     # Deltas — things this session added. Record zero explicitly when the
+     # metric was measured and didn't change; omit the field entirely only
+     # if the value is unknown (plots as a gap).
+     decisions_added: 3
+     oi_opened: 0
+     oi_closed: 0
+     specs_created: 0
+     specs_revised: 0        # substantive only; minor edits don't count (OI-002)
+     artefacts_added: 1
+     watchpoints_introduced: 0
+     # Snapshots — state at session close.
+     oi_open_at_close: 9
+     active_specs_at_close: 4
+     validation_checks_at_close: 154    # what validate.sh reports at the close commit
+     spec_versions_at_close: 8          # total files in specifications/
+     agents_used: 5                     # 1 orchestrator + perspectives
+     cross_model_participants: 1        # non-Claude participants (usually 0 or 1)
+     provenance_word_count_at_close: 47000
    ---
    ```
 
    `sources` is required in practice (every post ships one). Aim for 3–4 entries, the files a curious reader would want to verify the post against or read further in. Default mix: the close note, the decisions file, plus one or two topical files (a spec the session created or revised, a key perspective file like the Outsider or Skeptic, the external artefact for an external-application session). Trailing-slash paths render as directory links; bare paths render as file links. Repo + branch are configured in `src/site.ts`.
 
-   Also add a `metrics` block with numeric values for this session only. The aggregator in `src/lib/session-metrics.ts` handles cumulative math automatically — do not try to compute running totals; just record what happened *this* session. The canonical field list, kinds (delta vs. snapshot), and captions live in `src/lib/metrics.ts`; the schema enforces it. To add a new metric, edit `metrics.ts` and start authoring the field from this session forward (earlier sessions' missing values plot as gaps on `/growth/`).
+   `metrics` drives the per-session delta line on the sessions index and the sparklines on `/growth/`. **Only record what this session did.** The aggregator in `src/lib/session-metrics.ts` computes cumulative totals automatically — never try to author running totals. The canonical field list, kinds (delta vs. snapshot), and captions live in `src/lib/metrics.ts`.
 
-   For each new session, read the close note and the session-log row and extract:
+   How to populate each field for the session you're writing up:
 
-   - **Deltas** (things this session added) — `decisions_added`, `oi_opened`, `oi_closed`, `specs_created`, `specs_revised` (substantive only, per the OI-002 distinction — minor annotations don't count), `artefacts_added` (external artefacts produced), `watchpoints_introduced` (new W-items, not re-application of existing ones). Record zero explicitly when the metric was measured and didn't change — zero plots as a flat segment, missing plots as a gap.
-   - **Snapshots** (state at session close) — `oi_open_at_close`, `active_specs_at_close`, `validation_checks_at_close` (whatever `validate.sh` reported at start of the *next* session, which equals the close count of this one), `spec_versions_at_close` (total files in `specifications/`), `agents_used` (one orchestrator plus perspectives for this session), `cross_model_participants` (non-Claude participants, usually 0 or 1), `provenance_word_count_at_close` (`find provenance -name '*.md' \| xargs wc -w` at the close commit).
+   - `decisions_added` — count the D-NNN range in the session-log row (e.g. `D-050 through D-052` is 3).
+   - `oi_opened` / `oi_closed` — count new `OI-NNN` entries in `open-issues.md` and new rows in the Resolved Issues table traceable to this session.
+   - `specs_created` — new specification files in `specifications/`.
+   - `specs_revised` — substantive revisions only, per the OI-002 five-point heuristic (new normative content, new required fields, new triggers). Minor annotations and Open-Extensions elaborations don't count.
+   - `artefacts_added` — external artefacts produced this session (e.g. `artefact-*.md` under the session's provenance directory).
+   - `watchpoints_introduced` — new W-items defined this session (not re-application of existing ones).
+   - `oi_open_at_close` — `(previous session's oi_open_at_close) + oi_opened - oi_closed`. Sanity-check against the current state of `open-issues.md`.
+   - `active_specs_at_close` — distinct *live* specs (filenames without `-vN` suffix, status = active). Usually unchanged; if it changed, you already know.
+   - `validation_checks_at_close` — run `tools/validate.sh` at the session's close commit and use the reported pass count. Equivalently, this number equals whatever the next session's Read-activity log reports at its start. Omit if unknown.
+   - `spec_versions_at_close` — `ls specifications/*.md | wc -l` at the close commit; includes superseded versions.
+   - `agents_used` — 1 orchestrator plus the number of perspectives convened (count from `participants.yaml` or the `01a-*`/`01b-*`/... files).
+   - `cross_model_participants` — number of non-Claude participants (Outsider counts as 1).
+   - `provenance_word_count_at_close` — `find provenance -name '*.md' | xargs wc -w` at the close commit, tail line.
 
-   If a value is unknown — e.g. validation-check count not yet visible because the next session hasn't started — omit the field. A later session can't backfill it for you, but the gap on the chart is honest.
+   **Gap vs. zero.** Zero plots as a flat segment; a missing field plots as a gap. Use zero when a metric was measured and didn't change. Omit the field only when the value is genuinely not available (e.g. `validation_checks_at_close` if you're writing the post before the next session has opened and no one has run `validate.sh` yet).
+
+   **Adding a new metric later.** If the methodology starts producing something worth tracking (e.g. a new kind of artefact, or a tally the system decides to surface), add the field to `src/lib/metrics.ts` with its kind/label/caption and extend the schema in `src/content.config.ts`, then start authoring the field from this session forward. Earlier posts stay untouched — their missing values render as gaps on `/growth/`, which correctly signals "began being tracked here."
 
    Read two or three existing posts (001, 003, 007 are a good sample) before writing, to internalise the tone and shape.
 
@@ -104,10 +136,14 @@ This commentary site is the outward voice. The audience is broad and tech-curiou
 ## Repository map (for orientation)
 
 - `src/content/sessions/` — the posts, one markdown file per session.
-- `src/content.config.ts` — the frontmatter schema.
+- `src/content.config.ts` — the frontmatter schema (including the `metrics` object).
 - `src/layouts/Post.astro`, `Base.astro` — the templates.
-- `src/pages/` — home, sessions index, about, concepts, and the machine-readable endpoints (`feed.xml`, `llms.txt`, `robots.txt`, sitemap).
+- `src/pages/` — home, sessions index, `growth.astro`, about, concepts, and the machine-readable endpoints (`feed.xml`, `llms.txt`, `robots.txt`, sitemap).
 - `src/lib/sessions.ts` — helpers for deriving session count, latest session, and formatted dates.
+- `src/lib/metrics.ts` — canonical metric definitions (key, kind, label, caption, display order). Edit here when adding or removing a metric.
+- `src/lib/session-metrics.ts` — aggregator: turns per-session deltas into cumulative series and exposes snapshots directly. The `/growth/` page and sessions-index delta line both read from this.
+- `src/components/Sparkline.astro` — static SVG sparkline. No JS.
+- `src/components/SessionDeltas.astro` — the compact data line under each session on the index.
 - `src/site.ts` — central identity config (title, author, operator, naming state).
 - `.github/workflows/deploy.yml` — GitHub Pages deploy on push to `main`.
 - `README.md` — repo-level documentation, including the rename procedure.
