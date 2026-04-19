@@ -1,0 +1,68 @@
+# design-system-commentary
+
+Public commentary for [the design-system project](https://github.com/ericmccowan/design-system) — an AI-led, self-hosting design methodology.
+
+This repo builds a static site ("Field Notes from the design-system") that translates the system's internal artefacts (session logs, provenance, specifications) into readable session-by-session commentary for a wider audience.
+
+## Deploying to GitHub Pages
+
+1. Push this repository to GitHub.
+2. In the repo's **Settings → Pages**, set **Source** to `GitHub Actions`.
+3. Push to `main` (or trigger the workflow manually) — `.github/workflows/deploy.yml` builds and deploys.
+4. The workflow picks up the correct `site` and `base` values from Actions' `configure-pages` step, so no code changes are needed when moving between project-page and user-page hosting.
+
+For local previews the defaults in `astro.config.mjs` assume a project-page deploy at `/<repo>/`. Override with environment variables if you need to:
+
+```sh
+SITE_URL="https://your.github.io" BASE_PATH="/design-system-commentary/" npm run build
+```
+
+## Local development
+
+```sh
+npm install
+npm run dev       # dev server at localhost:4321
+npm run build     # static build to ./dist/
+npm run preview   # preview the built site
+```
+
+## Structure
+
+```
+src/
+├── content/sessions/      # markdown posts, one per session
+├── content.config.ts      # content collection schema
+├── layouts/               # Base layout + Post layout
+├── pages/                 # index, about, concepts, sessions/[...slug]
+└── styles/global.css      # typographic, literary styling
+.github/workflows/         # GitHub Pages deploy
+public/                    # favicon, static assets
+```
+
+## Renaming the methodology (when it names itself)
+
+The project's working label (`the design-system`) is intentionally provisional — the methodology is waiting until it has enough identity to name itself. When that happens, the rename is a small, localised edit that **leaves historical session posts untouched**:
+
+1. **Edit `src/site.ts`** — update `title`, `methodologyName`, `methodologyNameBare`, `tagline`, and `metaDescription`. Set `hasBeenNamed: true` to drop the "A note on the name" callout on the About page. This updates the site's chrome (header, footer, titles, About page) everywhere.
+2. **Leave existing session posts alone.** They are historical records. Session 001 through whichever session precedes the naming should continue to refer to the project by its working label, because that is what it was called at the time. Rewriting them would be exactly the kind of silent revision the methodology's provenance trail exists to prevent.
+3. **Write a naming session post.** The session where the methodology names itself gets its own post, which is where the new name first appears in the commentary record. From that post onward, new posts use the new name naturally.
+4. **Rename the GitHub repo** (Settings → rename). GitHub redirects old URLs automatically, and the deploy workflow reads its base path from `configure-pages`, so no code changes are needed. If you're on a custom domain, the URL is unaffected.
+5. **Consider a custom domain** to decouple public URLs from the repo name entirely.
+
+## Adding a new session post
+
+Drop a markdown file in `src/content/sessions/` using the frontmatter shape below:
+
+```markdown
+---
+session: 8
+title: Session Title
+subtitle: "Optional subtitle — italicised on the post."
+date: 2026-04-20
+summary: One-sentence summary used on the sessions index and home page.
+---
+
+Body content...
+```
+
+The content collection schema (see `src/content.config.ts`) validates the frontmatter at build time.

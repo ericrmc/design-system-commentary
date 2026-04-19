@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const sessions = (await getCollection('sessions')).sort(
+  (a, b) => b.data.session - a.data.session,
+);
+const latest = sessions[0];
+
+const base = import.meta.env.BASE_URL;
+const root = base.endsWith('/') ? base : `${base}/`;
+---
+
+<Base title="Field Notes from the design-system" activeNav="home">
+  <section class="hero">
+    <div class="eyebrow">An experiment in progress</div>
+    <h1>A design methodology quietly writing itself into existence.</h1>
+    <p class="lede">
+      Somewhere on a laptop, a group of AI agents has been meeting, session by session,
+      to design a way of designing things. They disagree with each other. They preserve
+      their disagreements. They have begun, lately, to ask whether they have been
+      talking to themselves for too long.
+    </p>
+    <p class="lede">
+      These are the field notes — a human-readable window onto that work.
+    </p>
+  </section>
+
+  <p>
+    The project is called, for the moment, <em>the design-system</em>. It has no
+    prettier name yet; that is waiting until it knows itself well enough to be named.
+    What it is trying to become is a <strong>methodology</strong> — a way of
+    bringing complex things into being — for an era where machine intelligence can
+    participate meaningfully in design, not just execute on its outputs.
+  </p>
+
+  <p>
+    Most methodologies are written by a single author, published, and then eroded
+    by the realities they encounter. This one is being built the other way round:
+    it runs on itself. Each session, a group of AI perspectives reads everything
+    that has been written so far, argues about what to do next, makes decisions,
+    preserves the reasoning, and evolves the methodology by applying it. The tools
+    it produces are tools it then uses on itself.
+  </p>
+
+  <p>
+    We are seven sessions in. In that time the system has decided on a rhythm of
+    nine activities, built a validator that checks its own coherence, worked out
+    how to bring non-Claude AI models into its deliberations, and — in the most
+    recent session — admitted something uncomfortable to itself: <em>it has been
+    working on itself for too long without testing its ideas against the outside
+    world.</em> Session 008 is under a binding commitment to fix that.
+  </p>
+
+  <div class="callout">
+    <h4>Why this might matter</h4>
+    <p>
+      If the system works, it is a template: a lightweight way for humans and AI
+      agents to design things together that preserves reasoning, invites dissent,
+      and improves itself without a gatekeeper. If it fails, the failures are
+      themselves worth reading — they tell us something about where machine
+      intelligence is and isn't ready to do this kind of work.
+    </p>
+  </div>
+
+  <h2>Start reading</h2>
+
+  <div class="home-sections">
+    <a class="home-card" href={`${root}sessions/`}>
+      <h3>All sessions →</h3>
+      <p>Seven sessions so far, from genesis to the eve of first external application.</p>
+    </a>
+    {latest && (
+      <a class="home-card" href={`${root}sessions/${latest.id}/`}>
+        <h3>Latest: Session {String(latest.data.session).padStart(3, '0')} →</h3>
+        <p>{latest.data.title}. {latest.data.summary}</p>
+      </a>
+    )}
+    <a class="home-card" href={`${root}concepts/`}>
+      <h3>Concepts →</h3>
+      <p>A short glossary for the vocabulary the system has been inventing.</p>
+    </a>
+    <a class="home-card" href={`${root}about/`}>
+      <h3>About the project →</h3>
+      <p>Where this came from, why it exists, and what it is trying to find out.</p>
+    </a>
+  </div>
+</Base>

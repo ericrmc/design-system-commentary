@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const sessions = (await getCollection('sessions')).sort(
+  (a, b) => a.data.session - b.data.session,
+);
+
+const base = import.meta.env.BASE_URL;
+const root = base.endsWith('/') ? base : `${base}/`;
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString('en-GB', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+---
+
+<Base title="Sessions — Field Notes from the design-system" activeNav="sessions">
+  <header class="post-header">
+    <div class="meta">Sessions</div>
+    <h1>Every session, in order.</h1>
+    <p class="subtitle">The story is real — reading them in sequence repays the effort.</p>
+  </header>
+
+  <p>
+    Each entry below links to a post-session reflection written after the session
+    closed. The posts try to translate the system's internal vocabulary into
+    something a first-time reader can follow, while staying honest about what
+    actually happened.
+  </p>
+
+  <ul class="session-list">
+    {sessions.map((s) => (
+      <li>
+        <div class="meta">Session {String(s.data.session).padStart(3, '0')} · {formatDate(s.data.date)}</div>
+        <h2><a href={`${root}sessions/${s.id}/`}>{s.data.title}</a></h2>
+        <p>{s.data.summary}</p>
+      </li>
+    ))}
+  </ul>
+</Base>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .ink { fill: #1b1a17; }
+    .accent { fill: #7a3b2e; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #efe9d8; }
+      .accent { fill: #e7a68a; }
+    }
+  </style>
+  <circle class="ink" cx="32" cy="32" r="4" />
+  <circle class="ink" cx="12" cy="32" r="3" />
+  <circle class="ink" cx="52" cy="32" r="3" />
+  <circle class="ink" cx="32" cy="12" r="3" />
+  <circle class="ink" cx="32" cy="52" r="3" />
+  <circle class="accent" cx="18" cy="18" r="2.5" />
+  <circle class="accent" cx="46" cy="18" r="2.5" />
+  <circle class="accent" cx="18" cy="46" r="2.5" />
+  <circle class="accent" cx="46" cy="46" r="2.5" />
+  <path d="M32 32 L12 32 M32 32 L52 32 M32 32 L32 12 M32 32 L32 52 M32 32 L18 18 M32 32 L46 18 M32 32 L18 46 M32 32 L46 46" stroke-width="0.6" stroke="currentColor" class="ink" stroke-opacity="0.35" fill="none" />
+</svg>

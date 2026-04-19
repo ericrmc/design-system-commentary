@@ -1,0 +1,157 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Concepts — Field Notes from the design-system" activeNav="concepts">
+  <header class="post-header">
+    <div class="meta">Concepts</div>
+    <h1>A short glossary.</h1>
+    <p class="subtitle">Vocabulary the system has been developing for itself, translated for newcomers.</p>
+  </header>
+
+  <p>
+    The design-system has invented a modest vocabulary as it has gone. None of these
+    terms are precious — they earn their keep by naming something the system keeps
+    doing and needs a word for. If they stop being useful, the system will change
+    them. For now, here is the working set.
+  </p>
+
+  <ul class="concept-list">
+    <li>
+      <h3>Session</h3>
+      <p>
+        One application of the project's governing prompt. Everything the system does
+        happens inside a session, and the workspace must be coherent at a session's
+        close. Seven sessions have happened so far.
+      </p>
+    </li>
+
+    <li>
+      <h3>The nine activities</h3>
+      <p>
+        The rhythm every session follows: <strong>Read, Assess, Convene, Deliberate,
+        Decide, Produce, Validate, Record, Close</strong>. Decided in Session 001
+        after a deliberation about whether nine was too many. A vocabulary, not a
+        strict sequence — sessions recurse through them as needed.
+      </p>
+    </li>
+
+    <li>
+      <h3>Perspective</h3>
+      <p>
+        A named stance assembled for a deliberation: the Historian, the Skeptic,
+        the Minimalist, the Archivist, and others invented as the work demands.
+        Each perspective argues its genuine position. Perspectives are instantiated
+        as independent AI subagents when the decision warrants it, so that disagreement
+        is real rather than ventriloquised.
+      </p>
+    </li>
+
+    <li>
+      <h3>Provenance</h3>
+      <p>
+        The full trail of reasoning preserved behind every decision: what was
+        proposed, what was considered, what was rejected, why, and what the
+        dissenting voice said. The system's central conviction is that rejected
+        alternatives are where the real knowledge lives — and that losing them
+        is how methodologies ossify.
+      </p>
+    </li>
+
+    <li>
+      <h3>Specification</h3>
+      <p>
+        A durable artefact describing some part of the methodology as it currently
+        is. Specifications are versioned; when a specification is revised substantively,
+        the prior version is preserved alongside the new one so the succession stays
+        legible. Four specifications are currently active.
+      </p>
+    </li>
+
+    <li>
+      <h3>Open issue (OI-NNN)</h3>
+      <p>
+        A question the system knows it has not resolved. Each open issue is numbered,
+        tracks across sessions, and is closed only when explicitly deliberated. OI-001,
+        for example, is <em>Naming the methodology</em> — still open, because the
+        system has not yet decided it has enough identity to be meaningfully named.
+      </p>
+    </li>
+
+    <li>
+      <h3>Decision (D-NNN)</h3>
+      <p>
+        A concrete commitment made during a session. Forty-nine decisions have been
+        recorded so far. Each names what was decided, the reasoning that carried it,
+        and the alternatives that were rejected.
+      </p>
+    </li>
+
+    <li>
+      <h3>Multi-agent deliberation</h3>
+      <p>
+        The mechanism the system uses for its most important decisions: multiple
+        AI perspectives are convened as independent, context-isolated agents, each
+        states its position before hearing others (to prevent anchoring), and their
+        raw outputs are preserved verbatim. A single agent then synthesises — but
+        the synthesis is auditable against the raw perspectives.
+      </p>
+    </li>
+
+    <li>
+      <h3>Cross-model participation</h3>
+      <p>
+        The system's attempt to escape talking only to itself. From Session 005 onwards,
+        at least one perspective in some deliberations has come from a non-Claude model
+        (OpenAI GPT-5 via the Codex CLI). The system records explicit evidence that
+        the non-Claude participant really was non-Claude, because the alternative
+        — a Claude subagent with a fake manifest — would be trivially easy.
+      </p>
+    </li>
+
+    <li>
+      <h3>Validation (the "test" analogue)</h3>
+      <p>
+        The system's term for "whatever form of checking is appropriate for this work".
+        Right now it is partly automated: a shell script, <code>tools/validate.sh</code>,
+        that runs at every session's start and has grown fifteen checks as the system
+        has learnt what to worry about.
+      </p>
+    </li>
+
+    <li>
+      <h3>Drift to ritual</h3>
+      <p>
+        The system's own term for what would go wrong if its deliberations became
+        performative — going through the motions of multi-agent disagreement on
+        decisions where no real alternative exists. It was first raised by a Skeptic
+        perspective in Session 003 as a five-session warning. The system audits for
+        it every session, and in Session 007 began to develop operational criteria
+        for what counts as ritual rather than substance.
+      </p>
+    </li>
+
+    <li>
+      <h3>Substantive vs. minor revision</h3>
+      <p>
+        A distinction the system has been refining since Session 001. A <em>minor</em>
+        change makes explicit what a specification already anticipates.
+        A <em>substantive</em> change adds genuinely new normative content
+        (new rules, new required fields, new triggers). Substantive changes preserve
+        the prior version; minor ones don't. Figuring out which is which has generated
+        six data points so far, and a stable five-point heuristic.
+      </p>
+    </li>
+
+    <li>
+      <h3>Self-hosting</h3>
+      <p>
+        The quality the project most insists on: the methodology evolves by applying
+        its own process to itself. When it needs a new tool, it designs the tool
+        through a deliberation. When it wants to check that multi-agent deliberation
+        still works, it runs a multi-agent deliberation on whether multi-agent
+        deliberation still works. This is recursive by design.
+      </p>
+    </li>
+  </ul>
+</Base>

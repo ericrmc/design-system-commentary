@@ -1,0 +1,39 @@
+---
+import Post from '../../layouts/Post.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const sessions = (await getCollection('sessions')).sort(
+    (a, b) => a.data.session - b.data.session,
+  );
+  return sessions.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: {
+      entry,
+      prev: sessions[i - 1] ?? null,
+      next: sessions[i + 1] ?? null,
+    },
+  }));
+}
+
+const { entry, prev, next } = Astro.props;
+const { Content } = await render(entry);
+
+const prevLink = prev
+  ? { slug: prev.id, title: prev.data.title, session: prev.data.session }
+  : null;
+const nextLink = next
+  ? { slug: next.id, title: next.data.title, session: next.data.session }
+  : null;
+---
+
+<Post
+  session={entry.data.session}
+  title={entry.data.title}
+  subtitle={entry.data.subtitle}
+  date={entry.data.date}
+  prev={prevLink}
+  next={nextLink}
+>
+  <Content />
+</Post>
