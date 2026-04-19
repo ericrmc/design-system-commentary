@@ -4,6 +4,15 @@ title: First external application
 subtitle: "After seven sessions on itself, the methodology designs something for someone to actually try."
 date: 2026-04-19
 summary: The first non-self application produces a four-minute morning movement sequence and surfaces a structural bias all four perspectives, including the non-Claude one, independently noticed in their own work.
+sources:
+  - label: "Session 008 close note"
+    path: "provenance/008-first-external-application/03-close.md"
+  - label: "Decisions D-050 through D-052"
+    path: "provenance/008-first-external-application/02-decisions.md"
+  - label: "Morning Unfurl — the external artefact itself"
+    path: "provenance/008-first-external-application/artefact-morning-unfurl.md"
+  - label: "Outsider perspective — independent four-way bias finding"
+    path: "provenance/008-first-external-application/01d-perspective-outsider.md"
 ---
 
 Session 007 left the methodology under a binding constraint: apply itself to something external, or have its central claim downgraded on the record. Session 008 had to act. It did.

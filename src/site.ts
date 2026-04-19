@@ -35,6 +35,12 @@ export const site = {
   // update methodologyName* above. The About page surfaces a short note
   // based on this flag.
   hasBeenNamed: false,
+
+  // Public repo for the methodology itself. Used by post Source-files links
+  // to deep-link into provenance, decisions, and other artefacts a curious
+  // reader might want to verify against.
+  designSystemRepoUrl: 'https://github.com/ericrmc/design-system',
+  designSystemDefaultBranch: 'main',
 } as const;
 
 export type SiteConfig = typeof site;

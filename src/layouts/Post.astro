@@ -1,6 +1,12 @@
 ---
 import Base from './Base.astro';
 import { site } from '../site';
+import { sourceUrl } from '../lib/sessions';
+
+interface Source {
+  label: string;
+  path: string;
+}
 
 interface Props {
   session: number;
@@ -13,6 +19,7 @@ interface Props {
   canonicalId?: string;
   currentVariant?: string;
   availableVariants?: string[];
+  sources?: Source[];
 }
 
 const {
@@ -26,6 +33,7 @@ const {
   canonicalId,
   currentVariant = 'default',
   availableVariants = [],
+  sources = [],
 } = Astro.props;
 
 const showVariantSwitcher = canonicalId && (availableVariants.length > 0 || currentVariant !== 'default');
@@ -103,6 +111,22 @@ const articleJsonLd = {
     <div class="post-body">
       <slot />
     </div>
+    {sources.length > 0 && (
+      <aside class="sources" aria-label="Source files">
+        <h4>Source files in the methodology repo</h4>
+        <p class="sources-intro">
+          The original provenance this post draws on. Open in <a href={site.designSystemRepoUrl}>the methodology repo</a> to verify or read further.
+        </p>
+        <ul>
+          {sources.map((s) => (
+            <li>
+              <a href={sourceUrl(site.designSystemRepoUrl, site.designSystemDefaultBranch, s.path)}>{s.label}</a>
+              <code>{s.path}</code>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    )}
     <nav class="post-nav" aria-label="Session navigation">
       {prev ? (
         <a class="prev" href={`${root}sessions/${prev.slug}/`}>

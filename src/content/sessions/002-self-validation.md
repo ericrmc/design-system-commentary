@@ -4,6 +4,15 @@ title: Self-Validation
 subtitle: "The methodology builds the first tool it will use on itself."
 date: 2026-04-17
 summary: Five perspectives design an automated validator. The system starts being able to check its own coherence.
+sources:
+  - label: "Session 002 close note"
+    path: "provenance/002-self-validation/03-close.md"
+  - label: "Decisions D-010 through D-014"
+    path: "provenance/002-self-validation/02-decisions.md"
+  - label: "validate.sh — the validator the session built"
+    path: "tools/validate.sh"
+  - label: "Validation-approach specification (latest version)"
+    path: "specifications/validation-approach.md"
 ---
 
 A methodology that cannot tell whether it is working is a methodology in denial. Session 002 knew this, and so its work was to build the first checking mechanism — an automated validator that could inspect the workspace and flag contradictions, missing provenance, or specifications drifting out of sync with reality.

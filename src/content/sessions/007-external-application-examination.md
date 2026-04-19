@@ -4,6 +4,15 @@ title: External Application Re-examination and Launch Preparation
 subtitle: "The session turns outward — with a real consequence if it doesn't."
 date: 2026-04-19
 summary: The system confronts its own inwardness, writes a pre-commitment that could downgrade its central claim if it fails, and asks for a target domain.
+sources:
+  - label: "Session 007 close note (with the user-ask)"
+    path: "provenance/007-external-application-examination/03-close.md"
+  - label: "Decisions D-044 through D-049 (including the downgrade provision)"
+    path: "provenance/007-external-application-examination/02-decisions.md"
+  - label: "Outsider perspective — proposer of the downgrade provision"
+    path: "provenance/007-external-application-examination/01d-perspective-outsider.md"
+  - label: "Skeptic perspective — the position-A-vs-B reframing"
+    path: "provenance/007-external-application-examination/01c-perspective-skeptic.md"
 ---
 
 This session is the one to pay attention to.

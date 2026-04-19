@@ -48,3 +48,11 @@ export function formatDate(d: Date): string {
 export function isoDate(d: Date): string {
   return d.toISOString().slice(0, 10);
 }
+
+// Build a GitHub URL for a path inside the design-system repo. A trailing
+// slash signals a directory link (tree view); otherwise it's a file (blob).
+export function sourceUrl(repoUrl: string, branch: string, path: string): string {
+  const view = path.endsWith('/') ? 'tree' : 'blob';
+  const cleanPath = path.replace(/^\/+/, '').replace(/\/$/, '');
+  return `${repoUrl}/${view}/${branch}/${cleanPath}`;
+}

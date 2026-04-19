@@ -4,6 +4,15 @@ title: Participation Mechanisms
 subtitle: "How do you let a stranger into the room?"
 date: 2026-04-18
 summary: The system specifies how non-Claude AI models — or humans — can participate as genuine perspectives.
+sources:
+  - label: "Session 004 close note"
+    path: "provenance/004-participation-mechanisms/03-close.md"
+  - label: "Decisions D-021 through D-027"
+    path: "provenance/004-participation-mechanisms/02-decisions.md"
+  - label: "Multi-agent deliberation specification (revised in this session)"
+    path: "specifications/multi-agent-deliberation.md"
+  - label: "All raw perspective files for this session"
+    path: "provenance/004-participation-mechanisms/"
 ---
 
 Session 004 was the session where the methodology admitted, on paper, that talking only to different instances of the same AI model was a form of monoculture. Not because Claude instances are bad deliberators, but because "perspective diversity" means very little if every perspective has learned the same things, from the same data, in the same way.

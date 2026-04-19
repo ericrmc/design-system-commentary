@@ -4,6 +4,15 @@ title: Triggers-Met Schema and the Second Cross-Model Deliberation
 subtitle: "Making the system's reasoning about itself machine-checkable."
 date: 2026-04-19
 summary: The methodology adds a required schema for declaring which triggers a decision met, and why. An outside voice shapes the outcome again.
+sources:
+  - label: "Session 006 close note"
+    path: "provenance/006-triggers-met-schema/03-close.md"
+  - label: "Decisions D-037 through D-043"
+    path: "provenance/006-triggers-met-schema/02-decisions.md"
+  - label: "Outsider perspective — second non-Claude raw output"
+    path: "provenance/006-triggers-met-schema/01d-perspective-outsider.md"
+  - label: "Multi-agent deliberation specification (revised in this session)"
+    path: "specifications/multi-agent-deliberation.md"
 ---
 
 Session 006 is a session about rigour. The work is less outwardly dramatic than Session 005 — no new voice enters the room for the first time — but in some ways it is more consequential. The system made its reasoning about when multi-agent deliberation is *required* mechanically checkable.

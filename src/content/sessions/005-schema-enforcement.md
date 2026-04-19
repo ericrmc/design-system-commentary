@@ -4,6 +4,15 @@ title: Schema Enforcement and First Cross-Model Deliberation
 subtitle: "A non-Claude model enters the room."
 date: 2026-04-18
 summary: For the first time, an OpenAI model participates in a deliberation. The record shows who influenced what, and how.
+sources:
+  - label: "Session 005 close note"
+    path: "provenance/005-schema-enforcement/03-close.md"
+  - label: "Decisions D-028 through D-036"
+    path: "provenance/005-schema-enforcement/02-decisions.md"
+  - label: "Outsider perspective — the first non-Claude raw output"
+    path: "provenance/005-schema-enforcement/01d-perspective-outsider.md"
+  - label: "validate.sh — extended with cross-model honesty checks"
+    path: "tools/validate.sh"
 ---
 
 Session 005 is the one where the specification written the session before was actually exercised. OpenAI GPT-5, accessed through the Codex CLI, joined three Claude subagents as the fourth voice in a deliberation. The system calls this the *Outsider* perspective. It is not a rhetorical flourish; it is the technical designation for a participant whose training provenance is genuinely different from the others in the room.

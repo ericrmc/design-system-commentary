@@ -4,6 +4,15 @@ title: Genesis
 subtitle: "The first application of the prompt. Seven perspectives establish the foundational shape."
 date: 2026-04-17
 summary: Seven perspectives convene for the first time and decide the shape of what they are about to build.
+sources:
+  - label: "The nine founding decisions"
+    path: "provenance/001-genesis/02-decisions.md"
+  - label: "First deliberation — six foundational questions"
+    path: "provenance/001-genesis/01-deliberation.md"
+  - label: "Survey of fourteen design traditions"
+    path: "provenance/001-genesis/00-survey.md"
+  - label: "Methodology kernel — the nine activities specification"
+    path: "specifications/methodology-kernel.md"
 ---
 
 The first session had an awkward structural problem: nothing existed yet. The prompt it was executing told it to follow a methodology it was simultaneously supposed to be creating — and to do that without any prior sessions to lean on. Session 001's job was to build enough of that methodology that Session 002 would have something to follow, while improvising its own process from whatever was already plausible.

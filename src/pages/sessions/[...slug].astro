@@ -22,6 +22,8 @@ export async function getStaticPaths() {
       next: canonical[i + 1] ?? null,
       canonicalId: entry.id,
       availableVariants: variantNames,
+      // Sources live on the canonical entry; variants share them.
+      sources: entry.data.sources ?? [],
     };
 
     paths.push({
@@ -40,7 +42,7 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { entry, prev, next, canonicalId, currentVariant, availableVariants } = Astro.props;
+const { entry, prev, next, canonicalId, currentVariant, availableVariants, sources } = Astro.props;
 const { Content } = await render(entry);
 
 const prevLink = prev
@@ -62,6 +64,7 @@ const nextLink = next
   canonicalId={canonicalId}
   currentVariant={currentVariant}
   availableVariants={availableVariants}
+  sources={sources}
 >
   <Content />
 </Post>
