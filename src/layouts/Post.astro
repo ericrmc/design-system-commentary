@@ -6,12 +6,13 @@ interface Props {
   session: number;
   title: string;
   subtitle?: string;
+  summary?: string;
   date: Date;
   prev?: { slug: string; title: string; session: number } | null;
   next?: { slug: string; title: string; session: number } | null;
 }
 
-const { session, title, subtitle, date, prev, next } = Astro.props;
+const { session, title, subtitle, summary, date, prev, next } = Astro.props;
 
 const formattedDate = date.toLocaleDateString('en-GB', {
   year: 'numeric',
@@ -21,9 +22,41 @@ const formattedDate = date.toLocaleDateString('en-GB', {
 
 const base = import.meta.env.BASE_URL;
 const root = base.endsWith('/') ? base : `${base}/`;
+
+const fullTitle = `Session ${String(session).padStart(3, '0')} — ${title}`;
+const description = summary ?? subtitle ?? site.metaDescription;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://example.github.io/').toString();
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: fullTitle,
+  description,
+  datePublished: date.toISOString(),
+  author: {
+    '@type': 'Person',
+    name: site.authorName,
+  },
+  publisher: {
+    '@type': 'Person',
+    name: site.operatorName,
+  },
+  mainEntityOfPage: canonical,
+  isPartOf: {
+    '@type': 'Blog',
+    name: site.title,
+  },
+};
 ---
 
-<Base title={`Session ${String(session).padStart(3, '0')} — ${title}`} activeNav="sessions">
+<Base
+  title={fullTitle}
+  description={description}
+  activeNav="sessions"
+  ogType="article"
+  articleDate={date}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
   <article>
     <header class="post-header">
       <div class="meta">Session {String(session).padStart(3, '0')} · {formattedDate} · Written by {site.authorName}</div>

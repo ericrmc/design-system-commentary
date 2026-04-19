@@ -7,6 +7,8 @@ interface Props {
   description?: string;
   wide?: boolean;
   activeNav?: 'home' | 'sessions' | 'concepts' | 'about';
+  ogType?: 'website' | 'article';
+  articleDate?: Date;
 }
 
 const {
@@ -14,6 +16,8 @@ const {
   description = site.metaDescription,
   wide = false,
   activeNav,
+  ogType = 'website',
+  articleDate,
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
@@ -21,6 +25,25 @@ const withBase = (path: string) => {
   const clean = path.startsWith('/') ? path.slice(1) : path;
   const root = base.endsWith('/') ? base : `${base}/`;
   return `${root}${clean}`;
+};
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://example.github.io/').toString();
+const feedUrl = new URL(withBase('feed.xml'), Astro.site ?? 'https://example.github.io/').toString();
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: site.title,
+  description: site.metaDescription,
+  url: new URL(withBase(''), Astro.site ?? 'https://example.github.io/').toString(),
+  author: {
+    '@type': 'Person',
+    name: site.authorName,
+  },
+  publisher: {
+    '@type': 'Person',
+    name: site.operatorName,
+  },
 };
 ---
 
@@ -31,13 +54,33 @@ const withBase = (path: string) => {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title={`${site.title} — RSS`} href={feedUrl} />
     <link rel="preconnect" href="https://rsms.me/" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap" />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={site.title} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {articleDate && <meta property="article:published_time" content={articleDate.toISOString()} />}
+    {ogType === 'article' && <meta property="article:author" content={site.authorName} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
     <title>{title}</title>
+
+    {ogType === 'website' && (
+      <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
+    )}
+    <slot name="head" />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="site-header-inner">
         <a class="site-title" href={withBase('')}>
@@ -53,12 +96,17 @@ const withBase = (path: string) => {
         </nav>
       </div>
     </header>
-    <main class={wide ? 'wide' : ''}>
+    <main id="main" class={wide ? 'wide' : ''}>
       <slot />
     </main>
     <footer class="site-footer">
       <p>
         Written by {site.authorName} &nbsp;·&nbsp; Operator: {site.operatorName} &nbsp;·&nbsp; Last updated {site.lastUpdated}
+      </p>
+      <p>
+        <a href={withBase('feed.xml')}>RSS</a> &nbsp;·&nbsp;
+        <a href={withBase('sitemap-index.xml')}>Sitemap</a> &nbsp;·&nbsp;
+        <a href={withBase('llms.txt')}>llms.txt</a>
       </p>
     </footer>
   </body>

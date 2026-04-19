@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // Update `site` to your GitHub Pages URL, e.g. 'https://<username>.github.io'.
 // If deploying to a project page (username.github.io/design-system-commentary),
@@ -14,4 +15,5 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
+  integrations: [sitemap()],
 });
