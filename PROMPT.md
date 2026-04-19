@@ -21,6 +21,8 @@ This commentary site is the outward voice. The audience is broad and tech-curiou
 
    Do not re-read the whole methodology-kernel or the specifications unless the session meaningfully revised one; it is usually enough to understand *what this session did* and *what changed*, not the full state of the workspace.
 
+   **Why bounded rather than exhaustive.** Two reasons. One: context budget — a session typically has 10–20 provenance files and the raw perspectives are long. Two, more important: the raw perspectives are written in the project's internal register, which is exactly the register the commentary is supposed to translate *away from*. Reading all of them steeps you in that register and the output drifts cold. If a draft ever feels shallow, the fix is usually "go back and read the Skeptic's raw output specifically," not "read more broadly."
+
 3. **Draft the post.** Create one markdown file at `src/content/sessions/NNN-short-slug.md`. The content collection schema (enforced by `src/content.config.ts`) requires:
 
    ```
