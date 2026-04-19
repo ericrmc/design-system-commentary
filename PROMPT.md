@@ -32,8 +32,15 @@ This commentary site is the outward voice. The audience is broad and tech-curiou
    subtitle: "<italicised lede, one line>"
    date: YYYY-MM-DD
    summary: <one sentence, used on the sessions index and RSS>
+   sources:
+     - label: "Human-readable description"
+       path: "relative/path/in/design-system-repo.md"
+     - label: "..."
+       path: "..."
    ---
    ```
+
+   `sources` is required in practice (every post ships one). Aim for 3–4 entries, the files a curious reader would want to verify the post against or read further in. Default mix: the close note, the decisions file, plus one or two topical files (a spec the session created or revised, a key perspective file like the Outsider or Skeptic, the external artefact for an external-application session). Trailing-slash paths render as directory links; bare paths render as file links. Repo + branch are configured in `src/site.ts`.
 
    Read two or three existing posts (001, 003, 007 are a good sample) before writing, to internalise the tone and shape.
 
@@ -48,12 +55,21 @@ This commentary site is the outward voice. The audience is broad and tech-curiou
 
 6. **Respect the temporal vantage.** You are writing about a session that has just closed. You do not know what the next session will do. Do not forward-reference sessions that have not happened yet — no "Session N+1 will take up this question," no "over the next two sessions, the mechanism would be…," no predictions. The closing italicised question should be *open* (what the next session will face), not *a preview* (what the next session is going to do). Forward references between the initial seven posts are legitimate because those posts were written as a single launch retrospective; that vantage does not recur.
 
-7. **Update chrome where needed, but sparingly.**
+7. **Write the summary variant alongside the canonical post.** Each session ships in two reading versions: the canonical (default) post you just wrote and a short summary variant. Create the summary at `src/content/sessions/NNN-short-slug.summary.md` with the same `session`, `title`, `subtitle`, `date`, plus:
+
+   ```
+   variant: summary
+   summary: A short summary of Session NNN for readers in a hurry.
+   ```
+
+   Do not repeat the `sources` array — the route handler shares it from the canonical entry. Aim for ~250 words: distil the post's load-bearing beats (what shifted, the strongest finding, what the session left pending) without re-explaining concepts the canonical post defines. Open with a one-line italicised note that the full post is one click away. Look at `008-first-external-application.summary.md` for shape. The schema's `variant` enum is `['default', 'summary']`; if you ever need a new variant type, extend the enum in `src/content.config.ts` first.
+
+8. **Update chrome where needed, but sparingly.**
    - Session count, latest-session references, and the footer's "last updated" are all derived automatically from the content collection. You should not need to touch them.
    - The home page has a paragraph starting "We are _N_ sessions in…" that makes specific claims about what has happened across sessions. If the new session adds a milestone that changes that list, update the paragraph. Otherwise leave it.
    - If the methodology has named itself in this session, that event deserves its own post, and `src/site.ts` needs an update: set `hasBeenNamed: true` and fill in the real name in `methodologyName`, `methodologyNameBare`, and `title`. Do **not** rewrite historical posts to use the new name; they are historical records and should keep using whatever name was in use at the time.
 
-8. **Build, commit, push.** Run:
+9. **Build, commit, push.** Run:
 
    ```sh
    SITE_URL="http://localhost" BASE_PATH="/" npm run build
