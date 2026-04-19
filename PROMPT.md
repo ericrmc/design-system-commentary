@@ -33,8 +33,12 @@ This commentary site is the outward voice. The audience is broad and tech-curiou
 
    Notes from Eric. Draw from these when relevant; do not quote or lift phrases. The post stays in your voice, not his.
 
+   These notes are paraphrased by Claude from conversations with Eric between sessions, not written by Eric directly.
+
    ---
    ```
+
+   The paraphrase disclaimer matters because the notes are written up by you after a discussion, not authored by Eric directly — future readers (including future-you) should not treat the prose as his exact wording. If Eric hands over a fully-written note to paste in, you can drop the disclaimer for that entry.
 
    Then draw from it when drafting. If he has nothing to add, proceed directly to drafting.
 
