@@ -27,6 +27,7 @@ metrics:
   spec_versions_at_close: 8
   agents_used: 5
   cross_model_participants: 1
+  provenance_word_count_at_close: 125075
 ---
 
 This session is the one to pay attention to.

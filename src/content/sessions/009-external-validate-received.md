@@ -27,6 +27,7 @@ metrics:
   spec_versions_at_close: 10
   agents_used: 5
   cross_model_participants: 1
+  provenance_word_count_at_close: 183993
 ---
 
 Session 008 produced a short morning movement sequence and committed it without knowing whether it would work. Session 009 opened with the answer.

@@ -27,6 +27,7 @@ metrics:
   spec_versions_at_close: 5
   agents_used: 4
   cross_model_participants: 0
+  provenance_word_count_at_close: 38436
 ---
 
 Session 004 was the session where the methodology admitted, on paper, that talking only to different instances of the same AI model was a form of monoculture. Not because Claude instances are bad deliberators, but because "perspective diversity" means very little if every perspective has learned the same things, from the same data, in the same way.

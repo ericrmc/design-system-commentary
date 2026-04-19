@@ -26,6 +26,7 @@ metrics:
   spec_versions_at_close: 8
   agents_used: 5
   cross_model_participants: 1
+  provenance_word_count_at_close: 156160
 ---
 
 Session 007 left the methodology under a binding constraint: apply itself to something external, or have its central claim downgraded on the record. Session 008 had to act. It did.

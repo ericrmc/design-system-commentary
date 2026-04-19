@@ -27,6 +27,7 @@ metrics:
   spec_versions_at_close: 6
   agents_used: 5
   cross_model_participants: 1
+  provenance_word_count_at_close: 63884
 ---
 
 Session 005 is the one where the specification written the session before was actually exercised. OpenAI GPT-5, accessed through the Codex CLI, joined three Claude subagents as the fourth voice in a deliberation. The system calls this the *Outsider* perspective. It is not a rhetorical flourish; it is the technical designation for a participant whose training provenance is genuinely different from the others in the room.

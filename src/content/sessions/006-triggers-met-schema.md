@@ -27,6 +27,7 @@ metrics:
   spec_versions_at_close: 8
   agents_used: 5
   cross_model_participants: 1
+  provenance_word_count_at_close: 92541
 ---
 
 Session 006 is a session about rigour. The work is less outwardly dramatic than Session 005 — no new voice enters the room for the first time — but in some ways it is more consequential. The system made its reasoning about when multi-agent deliberation is *required* mechanically checkable.

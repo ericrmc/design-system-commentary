@@ -26,6 +26,7 @@ metrics:
   spec_versions_at_close: 3
   agents_used: 6
   cross_model_participants: 0
+  provenance_word_count_at_close: 10336
 ---
 
 A methodology that cannot tell whether it is working is a methodology in denial. Session 002 knew this, and so its work was to build the first checking mechanism — an automated validator that could inspect the workspace and flag contradictions, missing provenance, or specifications drifting out of sync with reality.
