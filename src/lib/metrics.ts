@@ -89,7 +89,7 @@ export const METRICS: MetricDef[] = [
     label: 'Watchpoints introduced',
     nounSingular: 'watchpoint',
     nounPlural: 'watchpoints',
-    caption: 'Stress-test observations flagged for later sessions to probe. Currently only Session 007 has introduced any.',
+    caption: 'Stress-test observations flagged for later sessions to probe.',
     order: 70,
     onSessionList: true,
   },
