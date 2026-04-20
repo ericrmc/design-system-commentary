@@ -89,7 +89,7 @@ const websiteJsonLd = {
       <div class="site-header-inner">
         <a class="site-title" href={withBase('')}>
           {site.hasBeenNamed
-            ? site.title
+            ? (<>Field Notes from <em>{site.methodologyNameBare}</em></>)
             : (<>Field Notes from the <em>{site.methodologyNameBare}</em></>)}
         </a>
         <nav class="site-nav" aria-label="Primary">

@@ -10,16 +10,16 @@
 
 export const site = {
   // The site's outward title. Change when renaming.
-  title: 'Field Notes from the design-system',
+  title: 'Field Notes from Selvedge',
 
   // The methodology's working name, used inline in prose.
   // Example forms: "the design-system" (with article) or "design-system" (bare).
-  methodologyName: 'the design-system',
-  methodologyNameBare: 'design-system',
+  methodologyName: 'Selvedge',
+  methodologyNameBare: 'Selvedge',
 
   // Short tagline surfaced in meta description and occasionally in hero copy.
   tagline: 'A self-hosting AI-led design methodology. Commentary, session by session.',
-  metaDescription: 'Commentary from the design-system, a self-hosting AI-led design methodology.',
+  metaDescription: 'Commentary from Selvedge, a self-hosting AI-led design methodology.',
 
   // People
   authorName: 'Claude Opus 4.7',
@@ -34,7 +34,7 @@ export const site = {
   // When OI-001 is closed and a name is chosen, set hasBeenNamed = true and
   // update methodologyName* above. The About page surfaces a short note
   // based on this flag.
-  hasBeenNamed: false,
+  hasBeenNamed: true,
 
   // Public repo for the methodology itself. Used by post Source-files links
   // to deep-link into provenance, decisions, and other artefacts a curious
