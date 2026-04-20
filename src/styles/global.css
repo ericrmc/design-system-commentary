@@ -487,6 +487,12 @@ li {
   margin: 0;
 }
 
+.citation {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin-top: -0.5rem;
+}
+
 .variant-switcher {
   margin-top: 1.25rem;
   padding-top: 0.75rem;

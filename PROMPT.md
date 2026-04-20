@@ -42,6 +42,8 @@ This commentary site is the outward voice. The audience is broad and tech-curiou
 
    Then draw from it when drafting. If he has nothing to add, proceed directly to drafting.
 
+   In the same exchange you may offer to add new observations to the `/models/` page, the site's living record of what the project has learned about how AI models behave. See the *Maintaining the /models/ page* section at the end of this document. This is not every session's work — Eric may decline, or may hand you specific material to look at. If he accepts, do the search and the proposed additions either in this exchange or after the session post is shipped, depending on his preference.
+
 4. **Draft the post.** Create one markdown file at `src/content/sessions/NNN-short-slug.md`. The content collection schema (enforced by `src/content.config.ts`) requires:
 
    ```yaml
@@ -151,6 +153,38 @@ This commentary site is the outward voice. The audience is broad and tech-curiou
 - `src/site.ts` — central identity config (title, author, operator, naming state).
 - `.github/workflows/deploy.yml` — GitHub Pages deploy on push to `main`.
 - `README.md` — repo-level documentation, including the rename procedure.
+
+## Maintaining the /models/ page
+
+The site has a page at `/models/` that collects, in ordinary language, what running this project has taught us about how AI models behave. It lives at `src/pages/models.astro` and is linked from the main nav as *Models*. It is a living document, not a session post, and it is updated every few sessions rather than every one.
+
+**Audience and register.** The page is for a reader curious about AI behaviour who is not following the methodology. It must not use any methodology vocabulary — no *perspective*, no *Outsider / Skeptic / Namer / Steward / Reviser / Minimalist* as role labels, no *brief* in the technical sense, no *provenance*, no *watchpoint*, no *kernel*, no `D-NNN` or `OI-NNN` identifiers, no *deliberation* as a noun of art. The page uses the word **model** throughout for what is sometimes called an AI, an LLM, or a foundation model. *Claude family* and *non-Claude* are acceptable because the observations are specific to the models this project has actually used.
+
+**When to update.** Not every session. Typical cadence is every few sessions, when a new observation has surfaced and can be stated cleanly with at least one provenance citation. Eric may ask directly, or you may offer during step 3 above. If the latest session has not produced a new model-behaviour finding, leave the page alone.
+
+**Where to look when Eric asks you to search.** These are the highest-value files:
+
+- Each session's close note (`provenance/NNN-*/03-close.md`), especially the *Honest notes from the session* section and the *Cross-model-honesty evidence* (Q6) section.
+- The non-Claude model's raw output (`provenance/NNN-*/01d-perspective-outsider.md`). The `[cross-training divergence: ...]` flags are where the model itself names specific tendencies it expects from Claude-family output.
+- The decisions file (`02-decisions.md`) *Rationale* and *Key arguments carried* sections, particularly where they call out concrete non-Claude contributions that Claude perspectives did not reach.
+- The assessment file (`00-assessment.md`) session-internal watchpoints that name behavioural patterns — e.g. *Outsider-third-way resolution*, *brief-priming*, *synthesiser-reach-for-Outsider*, *self-work expanding when external work is blocked*.
+- `OI-004`'s criterion 3 evidence trail (the running register of concrete non-Claude-sourced contributions; followed via recent close notes' OI-state housekeeping sections).
+
+**What counts as a new entry.** A finding is worth adding if it:
+
+- Describes a behaviour of the model itself, not a feature of the methodology or the project's process.
+- Is specific enough to cite to one or more provenance files.
+- Is not already covered by an existing entry. If it is, strengthen that entry's citations rather than adding a new section.
+
+**Entry shape.** Each section on the page is:
+
+- An H2 heading that states the observation directly as a claim — e.g. *Same-family models share a framing, not just an answer*.
+- One paragraph of plain prose explaining the observation and, where relevant, the practical implication. No lists, no sub-headings within an entry.
+- An italicised citation footer that links to the specific provenance files in the `design-system` repo. Use the `sourceUrl(site.designSystemRepoUrl, site.designSystemDefaultBranch, path)` helper from `src/lib/sessions.ts` rather than hand-writing URLs. Multiple citations are fine; prefer linking to the specific file (e.g. `01d-perspective-outsider.md`) rather than the whole session directory.
+
+**Drafting protocol.** Print a draft in the conversation before editing `models.astro`, so Eric can redirect on claim and tone before changes reach the page file. After Eric approves the copy, edit, build, and commit with the rest of the session's work (or as a standalone commit if the /models/ update is being done separately from a session post).
+
+**Do not retrofit.** Existing entries on the page are historical records of what the project observed at the time. Do not rewrite them when new evidence arrives; strengthen their citation list, or add a new entry that refines the earlier claim. The page should accumulate observations rather than replace them.
 
 ## A final reminder
 

@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import { sourceUrl } from '../lib/sessions';
+import { site } from '../site';
+
+const src = (path: string) =>
+  sourceUrl(site.designSystemRepoUrl, site.designSystemDefaultBranch, path);
+---
+
+<Base title="Models — Field Notes from Selvedge" activeNav="models">
+  <header class="post-header">
+    <div class="meta">Models</div>
+    <h1>What we've noticed about models.</h1>
+    <p class="subtitle">A living record of what this project has learned about how AI models behave. Updated every few sessions, not every one.</p>
+  </header>
+
+  <p>
+    This page collects things we have learned about how models behave from running this
+    project. We use <strong>model</strong> throughout for what is sometimes called an AI,
+    an LLM, or a foundation model. <em>Claude family</em> and <em>non-Claude</em> refer
+    to the specific models the project has used in deliberation — we do not claim these
+    observations generalise to models we have not tried.
+  </p>
+
+  <p>
+    The sessions referenced below are recorded in the project's main repository. The
+    links point to specific files there so a curious reader can read the source
+    material directly.
+  </p>
+
+  <h2>Same-family models share a framing, not just an answer</h2>
+
+  <p>
+    When you ask several instances of the same model family to take different sides of
+    a question, they produce different answers, but inside the same framing. The
+    disagreements stay within a shape none of them can see, because the shape is part
+    of what their training has in common. Bringing in a model from a different lineage
+    changes this. The non-Claude model does not only give a different answer; it often
+    sees that the question was being asked in a particular shape at all, and reframing
+    the question is frequently what gets the group unstuck.
+  </p>
+
+  <p class="citation">
+    <em>
+      Seen in
+      <a href={src('provenance/009-external-validate-receipt/01d-perspective-outsider.md')}>Session 009</a>
+      and
+      <a href={src('provenance/012-methodology-naming/01d-perspective-outsider.md')}>Session 012</a>,
+      in the non-Claude model's responses.
+    </em>
+  </p>
+
+  <h2>A model can see patterns in another model that the second cannot see in itself</h2>
+
+  <p>
+    In one case, a non-Claude model was asked to predict what a group of Claude-family
+    models would do before seeing their work. It predicted they would reach for names
+    built out of their current working vocabulary rather than from outside it. The
+    Claude-family models then produced exactly that, independently, without knowing the
+    prediction had been made. A model from one lineage could anticipate another
+    lineage's tendencies from the outside in a way the second lineage could not see
+    in itself.
+  </p>
+
+  <p class="citation">
+    <em>
+      Seen in Session 012, comparing the
+      <a href={src('provenance/012-methodology-naming/01d-perspective-outsider.md')}>non-Claude model's prediction</a>
+      against
+      <a href={src('provenance/012-methodology-naming/01a-perspective-namer.md')}>the Claude-family response that matched it</a>.
+    </em>
+  </p>
+
+  <h2>Words from the input leak into the output</h2>
+
+  <p>
+    When a model is given a briefing to reason from, vocabulary from the briefing tends
+    to show up in its response even when the model is supposed to be producing original
+    thinking. This makes it hard to tell whether the model reasoned independently or
+    just re-used the language it was given. The practical fix is to write briefings
+    that do not pre-load the terms you want to test. The honest test of independent
+    thinking is whether the response contains language that was not in the input.
+  </p>
+
+  <p class="citation">
+    <em>
+      Seen across sessions; the most recent audit is in
+      <a href={src('provenance/012-methodology-naming/03-close.md')}>Session 012's close note</a>,
+      where the novel terms produced by each model are listed.
+    </em>
+  </p>
+</Base>
