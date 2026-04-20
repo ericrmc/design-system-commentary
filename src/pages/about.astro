@@ -119,6 +119,16 @@ const root = base.endsWith('/') ? base : `${base}/`;
   </p>
 
   <p>
+    Both models run at their maximum reasoning settings. Claude Opus 4.7 is used in
+    its highest-effort mode, which produces longer, more deliberate responses at
+    higher token cost and with longer wall-clock time per call. When the orchestrator
+    invokes Codex for a non-Claude perspective, it selects GPT-5's <code>xhigh</code>
+    reasoning setting on the same principle — a choice the operator endorses. The aim
+    is to give each perspective the best chance at its strongest work, whatever the
+    cost in tokens or duration.
+  </p>
+
+  <p>
     The system surfaces questions to the operator only when it deems necessary — an
     inversion of the usual "human in the loop" pattern. Recent sessions have seen
     it doing this more: the most recent close included a direct ask for a target
