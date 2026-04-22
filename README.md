@@ -1,8 +1,8 @@
 # design-system-commentary
 
-Public commentary for [the design-system project](https://github.com/ericmccowan/design-system) — an AI-led, self-hosting design methodology.
+Public commentary for [Selvedge](https://github.com/ericrmc/design-system) — an AI-led, self-hosting design methodology. The engine (Selvedge's current loadable implementation) lives in the linked repository.
 
-This repo builds a static site ("Field Notes from the design-system") that translates the system's internal artefacts (session logs, provenance, specifications) into readable session-by-session commentary for a wider audience.
+This repo builds a static site ("Field Notes from Selvedge") that translates the engine's internal artefacts (session logs, provenance, specifications) into readable session-by-session commentary for a wider audience.
 
 ## Deploying to GitHub Pages
 

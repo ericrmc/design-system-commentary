@@ -115,12 +115,12 @@ const articleJsonLd = {
       <aside class="sources" aria-label="Source files">
         <h4>Source files in the methodology repo</h4>
         <p class="sources-intro">
-          The original provenance this post draws on. Open in <a href={site.designSystemRepoUrl}>the methodology repo</a> to verify or read further.
+          The original provenance this post draws on. Open in <a href={site.engineRepoUrl}>the engine repo</a> to verify or read further.
         </p>
         <ul>
           {sources.map((s) => (
             <li>
-              <a href={sourceUrl(site.designSystemRepoUrl, site.designSystemDefaultBranch, s.path)}>{s.label}</a>
+              <a href={sourceUrl(site.engineRepoUrl, site.engineDefaultBranch, s.path)}>{s.label}</a>
               <code>{s.path}</code>
             </li>
           ))}

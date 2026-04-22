@@ -10,9 +10,9 @@ const sessions = defineCollection({
     date: z.coerce.date(),
     summary: z.string(),
     variant: z.enum(['default', 'summary']).default('default'),
-    // Source files in the methodology repo that this post draws on. Rendered as
+    // Source files in the engine repo that this post draws on. Rendered as
     // a "Source files" block at the bottom of the post. Paths are relative to
-    // the design-system repo root; trailing-slash paths render as directory
+    // the engine repo root; trailing-slash paths render as directory
     // (tree) links, others as file (blob) links.
     sources: z
       .array(

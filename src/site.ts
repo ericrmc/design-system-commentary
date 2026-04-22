@@ -12,8 +12,9 @@ export const site = {
   // The site's outward title. Change when renaming.
   title: 'Field Notes from Selvedge',
 
-  // The methodology's working name, used inline in prose.
-  // Example forms: "the design-system" (with article) or "design-system" (bare).
+  // The methodology's name, used inline in prose.
+  // Example forms: "Selvedge" (bare) or "the Selvedge engine" (qualified,
+  // per identity.md v2's three-layer denotation).
   methodologyName: 'Selvedge',
   methodologyNameBare: 'Selvedge',
 
@@ -36,11 +37,11 @@ export const site = {
   // based on this flag.
   hasBeenNamed: true,
 
-  // Public repo for the methodology itself. Used by post Source-files links
+  // Public repo for the Selvedge engine. Used by post Source-files links
   // to deep-link into provenance, decisions, and other artefacts a curious
   // reader might want to verify against.
-  designSystemRepoUrl: 'https://github.com/ericrmc/design-system',
-  designSystemDefaultBranch: 'main',
+  engineRepoUrl: 'https://github.com/ericrmc/design-system',
+  engineDefaultBranch: 'main',
 } as const;
 
 export type SiteConfig = typeof site;
