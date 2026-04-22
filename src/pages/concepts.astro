@@ -18,11 +18,44 @@ import Base from '../layouts/Base.astro';
 
   <ul class="concept-list">
     <li>
+      <h3>Methodology, engine, application</h3>
+      <p>
+        The three layers Selvedge settled on in Session 017. <em>Selvedge</em>
+        names the methodology: the abstract approach — the nine-activity rhythm,
+        the multi-agent deliberation discipline, the preservation of dissent
+        alongside decisions. The <em>Selvedge engine</em> is the current loadable
+        implementation of that methodology: a specific file set (prompts,
+        specifications, a validator) that, loaded together, runs a session. An
+        <em>application</em> is one specific run of the engine against a problem.
+        Two kinds are recognised: the <strong>self-development application</strong>,
+        which is this workspace evolving the engine's own specifications, and
+        <strong>external-problem applications</strong>, which run the engine
+        against problems that are not its own design. The three layers keep the
+        abstract approach, the concrete loadable thing, and the specific run from
+        being talked about as if they were interchangeable.
+      </p>
+    </li>
+
+    <li>
+      <h3>Engine manifest</h3>
+      <p>
+        The specification that lists the files constituting the Selvedge engine at
+        a given version. Its scope is deliberately narrow: enumerate the files that
+        get loaded, name what is explicitly <em>not</em> part of the engine (the
+        session log, the open-issues list, the development provenance), and
+        declare how the engine version increments. It answers "what do I load to
+        run Selvedge here?" without restating the content of the specs it lists.
+        Introduced in Session 017 alongside the <code>engine-v1</code> version
+        number.
+      </p>
+    </li>
+
+    <li>
       <h3>Session</h3>
       <p>
-        One application of the project's governing prompt. Everything the system does
-        happens inside a session, and the workspace must be coherent at a session's
-        close. Seven sessions have happened so far.
+        One application of the engine's governing prompt. Everything the system
+        does happens inside a session, and the workspace must be coherent at a
+        session's close.
       </p>
     </li>
 
@@ -71,10 +104,11 @@ import Base from '../layouts/Base.astro';
     <li>
       <h3>Open issue (OI-NNN)</h3>
       <p>
-        A question the system knows it has not resolved. Each open issue is numbered,
-        tracks across sessions, and is closed only when explicitly deliberated. OI-001,
-        for example, is <em>Naming the methodology</em> — still open, because the
-        system has not yet decided it has enough identity to be meaningfully named.
+        A question the system knows it has not resolved. Each open issue is
+        numbered, tracks across sessions, and is closed only when explicitly
+        deliberated. OI-001, for example, was <em>Naming the methodology</em> —
+        opened in Session 001 when the system declined to name itself, and
+        closed eleven sessions later when it settled on Selvedge.
       </p>
     </li>
 
