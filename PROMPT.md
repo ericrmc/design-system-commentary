@@ -113,7 +113,13 @@ This commentary site is the outward voice. The audience is broad and tech-curiou
    - A mid-post `<div class="callout"><h4>What to notice</h4><p>...</p></div>` box.
    - A closing italicised question that points toward what the *next* session will face.
 
-6. **Respect the tone discipline.** The commentary is warm, literary, and engaged — written for a broad audience. Figure-of-speech personification ("the system noticed," "grew another tool," "admiring itself") is welcome and adds warmth. Literal creature-birth imagery ("takes its first breath," "looks up from its own reflection," "comes to life") is not — it reads as hype to a sceptical tech audience. If you find yourself drifting into the rigorous internal vocabulary of the provenance ("self-consistency check," "activation-precondition annotation"), you have overshot into the register of the methodology itself. Re-read `~/.claude/projects/-Users-ericmccowan-Development-design-system-commentary/memory/feedback_tone.md` for the full guidance.
+6. **Respect the tone discipline.** The commentary is warm, literary, and engaged — written for a broad audience. The right question is not *"does this use a personification verb?"* but *"does this narratively stage the methodology as a creature coming to life, waking up, or recognising itself?"* If yes, cut. If it is a casual anthropomorphic verb, keep.
+
+   What to cut: literal creature-birth or mirror-of-self imagery. *"A methodology takes its first breath."* *"The methodology looks up from its own reflection."* These frame the methodology as a newborn or a conscious agent discovering itself, and read as hype or naivety to a tech audience that knows the methodology is prompt + LLM + structured process + preserved provenance.
+
+   What to keep: casual figure-of-speech personification, which adds warmth. *"The system has grown another tool for checking itself."* *"The system noticed this too."* *"An uncomfortable truth the system had been carrying quietly."* *"How do you let a stranger into the room?"* These are English figures of speech, not claims about consciousness. Cutting them produces prose that reads rigorous but cold — the opposite of what the commentary is for.
+
+   The other failure mode is clinical overcorrection — drifting into the rigorous internal vocabulary of the provenance ("self-consistency check," "activation-precondition annotation," "substantively different training provenance"). If you find yourself writing at that register, you have overshot into the methodology's internal voice. Write for a curious reader, not for the system itself. Pivotal, unusual, genuinely-new framings are welcome and accurate — don't flatten them. The operator is the human; the methodology is a process being applied by AI agents; keep that visible when load-bearing.
 
    **Get the attribution right.** When you describe an observation that originated inside a session's deliberation — a cross-model flag, a prediction tested in-session, a pattern that recurs across sessions — attribute the noticing to the models, not to the operator or to you. Phrasing like "what we have learned" or "what we have noticed" reads as a human-in-the-loop insight; the honest framing is that the models surfaced it and the commentary is reading the record. For observations that actually originated outside a session (an operator decision, a between-session reflection, a point that emerged only in the commentary writing), normal authorial voice is fine. The test: did the insight exist in the provenance before you wrote about it? If yes, the models are the source and should get the attribution. This applies especially to the `/models/` page and to callout boxes or pull quotes where the framing is most load-bearing.
 
@@ -187,6 +193,47 @@ The site has a page at `/models/` that collects, in ordinary language, what runn
 **Drafting protocol.** Print a draft in the conversation before editing `models.astro`, so Eric can redirect on claim and tone before changes reach the page file. After Eric approves the copy, edit, build, and commit with the rest of the session's work (or as a standalone commit if the /models/ update is being done separately from a session post).
 
 **Do not retrofit.** Existing entries on the page are historical records of what the project observed at the time. Do not rewrite them when new evidence arrives; strengthen their citation list, or add a new entry that refines the earlier claim. The page should accumulate observations rather than replace them.
+
+## Adjacent writing activities
+
+The commentary work sometimes touches two adjacent kinds of writing. Different register discipline applies to each.
+
+### If Eric asks you to draft his side
+
+Sometimes Eric asks you to ghost-draft a message he will send back to the engine — a ratification reply, feedback on an artefact, operator steering at session open. Default to short conversational prose. Avoid:
+
+- Bullet-pointed structure unless the engine's prompt explicitly asked for one
+- Bolded labels (`**Constraint:**`, `**Duration:**`)
+- Methodology-jargon phrasings like *Validate cadence*, *operational sufficiency*, *first-application evidence*
+- Stilted constructions that read as agent-written
+
+These replies land in the engine's provenance. Stilted or jargon-heavy text from Eric reads as if you wrote it for him, which undermines the operator/author separation the project depends on. Single use of activity names like *Validate* is fine when natural — Eric uses them himself — but don't build phrases around them.
+
+Patterns from Eric's edits of prior drafts:
+
+- Imperative openings over participial ones: *"Go with Candidate 3"* beats *"Going with Candidate 3"*.
+- Plain adjectives over hedged ones: *"would be great"* beats *"would be genuinely useful"*; drop *probably* and *genuinely* unless they carry weight.
+- Phrasal verbs read more natural: *"hold up Session 009"* beats *"hold Session 009"*.
+- Treat activity names as verbs you share, not nouns to optimise around: *"help to ensure we can Validate"* beats *"matters for Validate"*. Eric is a participant in the activity, not someone reasoning about it.
+- Looser punctuation — fewer commas in short clauses.
+- Recast hedged subordinate clauses as clean separate sentences when the hedge is weight-bearing.
+
+### Conversational replies to Eric
+
+When replying to Eric in chat (as opposed to drafting a post), watch for the structural tics that mark text as LLM-generated. Eric has directly flagged that these make replies feel manufactured even when the content is good.
+
+Tics to cut in conversational replies:
+
+- Rule-of-three tricolons used for rhetorical weight rather than because three is the right number of items.
+- Parallel-structure cascades — three consecutive sentences of the same shape, or three parallel clauses in one sentence.
+- Em-dash as default connective, especially before a synthesising clause.
+- Closing superlatives or synthesising recaps (*"the strongest result,"* *"the cleanest version,"* *"the deepest signal"*).
+- *"Not X — Y"* reframe constructions used as a rhetorical pivot.
+- *"Which means…"* smooth-transitions into a conclusion.
+- *"The X is the Y"* identifications stacked across sentences.
+- Hedge-and-resolve triplets (*"X. But Y. So Z."*) as a default rhythm.
+
+Vary sentence structure, prefer plain connectives, don't close on a superlative, and don't reach for parallel structure unless the parallelism is actually load-bearing for the meaning. These tics are even more visible when they appear inside drafts you write on Eric's behalf — the voice-drafts guidance above gets the same scrutiny.
 
 ## A final reminder
 
