@@ -111,50 +111,57 @@ const root = base.endsWith('/') ? base : `${base}/`;
   <h2 id="validation">A word on validation</h2>
 
   <p>
-    Validation in this project has <strong>two tiers</strong>, reflecting a
-    distinction the system takes seriously: between properties a script can
-    check and properties that require judgment.
+    Validation in this project comes in <strong>three forms</strong>, reflecting
+    different questions the methodology needs answered about its own work:
+    whether the workspace is internally coherent, whether an artefact functions
+    in the world, and whether the methodology can produce good work on problems
+    whose solutions are already known.
   </p>
 
   <p>
-    <strong>Tier 1: structural checks.</strong> A short shell script,
-    <code>tools/validate.sh</code>, runs at the start of every session. It
-    verifies that the workspace's files have the shape the specifications say
-    they should have — required top-level files exist, each specification has a
-    version number and the three required section headings, each decision
-    record lists its rejected alternatives, provenance directories follow the
-    naming convention. The script has grown a small number of checks over time
-    (currently fifteen) as the system learnt what to worry about. Checks marked
-    Fail exit non-zero; checks marked Warning report but don't cause failure.
+    <strong>Workspace validation.</strong> The internal-consistency check that
+    runs inside every session. It has two tiers. <em>Tier 1</em> is automated:
+    a short shell script, <code>tools/validate.sh</code>, runs at the start of
+    every session and verifies that the workspace's files have the shape the
+    specifications say they should have — required top-level files exist, each
+    specification has a version number and the three required section headings,
+    each decision record lists its rejected alternatives, provenance directories
+    follow the naming convention. The script has grown to around fifteen checks
+    as the system has learnt what to worry about. <em>Tier 2</em> is a set of
+    guided questions the tool prints after Tier 1, for the agent or human
+    conducting the session to consider. These address properties a script can't
+    reach: whether the reasoning genuinely uses prior provenance, whether the
+    adversarial perspective provided real challenge, whether the methodology is
+    making meaningful progress or accumulating ceremony. Passing Tier 1 means
+    the work is shaped correctly; Tier 2 is where the harder question — whether
+    the form carries its intended meaning — gets asked. The answers go into
+    provenance.
   </p>
 
   <p>
-    <strong>Tier 2: guided assessment.</strong> A set of questions the tool
-    prints for the agent or human conducting the session to consider. These
-    address properties a script can't reach: whether this session's reasoning
-    genuinely uses prior provenance or re-proposes past decisions without
-    acknowledgment; whether the adversarial perspective provided real challenge
-    or conceded too easily; whether the methodology is making meaningful progress
-    or accumulating ceremony. The answers go into provenance and are what catches
-    the kinds of drift automated checks structurally cannot.
+    <strong>Domain validation.</strong> Evidence from a person who actually used
+    an artefact the methodology produced. The first two external artefacts (a
+    morning movement sequence and a household decision guide) were both
+    domain-validated this way: the operator tried them on a real use and
+    reported back. Domain validation sits outside the two-tier automation; it
+    requires a domain-actor who holds the problem the artefact addresses.
   </p>
 
   <p>
-    The split is a way of being honest about the limits of automation. Passing
-    Tier 1 means the work is shaped correctly; it does not mean the work is
-    good. Tier 2 is where the harder question — whether the form carries its
-    intended meaning — gets asked.
+    <strong>Reference validation.</strong> Added in Session 014 for cases where
+    no domain-actor is available. The methodology runs blind against a problem
+    with a documented known solution, and the result is compared to the
+    reference. Separation of duties is enforced across the exercise — no single
+    agent sees both the reference and the work-in-progress. It addresses a
+    narrower claim than domain validation: that the methodology <em>can derive
+    artefacts</em> under the stated constraints, not that an artefact
+    <em>functioned</em> in live use.
   </p>
 
   <p>
-    Separately, since Session 009 the kernel recognises three senses of
-    <em>validation</em> itself. <strong>Workspace validation</strong> is what
-    Tier 1 and Tier 2 run against the workspace's internal state.
-    <strong>Domain validation</strong> is evidence from a person who actually
-    used an artefact the methodology produced. <strong>Reference validation</strong>
-    was added in Session 014 for cases where no domain-actor is available: the
-    methodology runs blind against a problem with a documented known solution,
-    and the result is compared.
+    The three are not substitutes for each other. Workspace validation verifies
+    shape; Domain validation verifies function; Reference validation verifies
+    capability under controlled conditions.
   </p>
 
   <h2>Who is doing the design work</h2>
