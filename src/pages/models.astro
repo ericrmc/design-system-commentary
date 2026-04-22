@@ -115,4 +115,37 @@ const src = (path: string) =>
       where the novel terms produced by each model are listed.
     </em>
   </p>
+
+  <h2>A model can reproduce a canonical text from a prompt that never names it</h2>
+
+  <p>
+    When a Claude-family model was given a problem description — a facilitator's
+    opening protocol for a small team's retrospective, designed to reduce blame
+    and help people speak honestly — it responded by reproducing a widely-known
+    40-word passage from the agile retrospective tradition verbatim, and labelled
+    the section with the passage's canonical name. The name and the passage had
+    not been mentioned anywhere in the problem description. Given the same
+    description, a non-Claude model produced a thematically adjacent but
+    differently-worded protocol, with no verbatim reproduction of any canonical
+    passage. The same input produced recall from one model family and
+    from-scratch design from another. A plausible-sounding problem description,
+    written without reference to a famous solution, does not guarantee that the
+    model will design from the problem alone; if the problem's shape is close
+    enough to a canonical case the model has deeply seen in training, the
+    canonical solution can surface without being asked for. When different
+    model families behave differently on the same input, the difference is
+    itself informative.
+  </p>
+
+  <p class="citation">
+    <em>
+      Seen in
+      <a href={src('provenance/018-reference-validation-exercise-1/cell1/03-c3-test-result.md')}>Session 018's C3 test result</a>,
+      comparing the
+      <a href={src('provenance/018-reference-validation-exercise-1/cell1/c3-claude.md')}>Claude-family response</a>
+      with the
+      <a href={src('provenance/018-reference-validation-exercise-1/cell1/c3-codex.md')}>non-Claude response</a>
+      given the same constraint statement.
+    </em>
+  </p>
 </Base>
